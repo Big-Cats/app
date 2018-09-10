@@ -2,10 +2,6 @@
   <li>
     <div class="title">
       <h3>User: {{user.email}}</h3>
-      <div class="user-goals" v-for="(goal, i) in user.goals" :key="goal.description">
-        <p class="col-1">#{{i+1}}:</p>
-        <p class="col-2">{{goal.description}}</p>
-      </div>
     </div>
   </li>
 </template>

@@ -1,15 +1,7 @@
 <template>
   <div>
-    <h2>At Bacon, We Care About Our Users</h2>
-    <p>
-      Have you ever been lost? So far out at sea that you can't find dry land?
-    </p>
-    <p>
-      Now you're found. One small step at a time, we'll help you back onto land and into the light.
-    </p>
-    <p>
-      Go far, my son.
-    </p>
+    <h2>About ~whatever we call this~ </h2>
+   
   </div>
 </template>
 
