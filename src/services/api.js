@@ -1,6 +1,7 @@
 const URL = '/api';
 const AUTH_URL = `${URL}/auth`;
 const MOVEMENTS_URL = `${URL}/movements`;
+const PROGRAMS_URL = `${URL}/programs`;
 
 // helper functions
 
@@ -75,4 +76,9 @@ export function getMovements() {
     .then(responseHandler);
 }
 
-
+export function getPrograms() {
+  return fetch(PROGRAMS_URL, {
+    headers: getHeaders()
+  })
+    .then(responseHandler);
+}

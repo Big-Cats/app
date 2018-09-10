@@ -1,16 +1,31 @@
 <template>
   <div>
     <FormControl label="New Workout">
-      <select>
-        <option>hi</option>
+      <select v-model="program">
+        <option v-for="program in programs"
+              :program="program"
+              :key="program.id"
+              :name="program.name"
+              :selected="selected"
+              >
+              {{ program.name }}
+        </option>
       </select>
     </FormControl>
+    <FormControl>
+      <button type="submit" @click.prevent="onSelect">Begin Workout</button>
+    </FormControl>    
   </div>
 </template>
 
 <script>
 import FormControl from './FormControl.vue';
 export default {
+  props: {
+    onSelect: Function,
+    programs: Array,
+    selected: Object
+  },
   components: {
     FormControl
   }
