@@ -1,12 +1,14 @@
 <template>
     <div>
-        <h2>User Dashboard</h2>
+        <h2>Workouts</h2>
+        <NewWorkout/>
         <WorkoutCard :movements="movements"/>
     </div>
 </template>
 
 <script>
 import WorkoutCard from './WorkoutCard.vue';
+import NewWorkout from './NewWorkout.vue';
 import { getMovements } from '../services/api';
 export default {
   data(){
@@ -24,7 +26,8 @@ export default {
       });
   },
   components: {
-    WorkoutCard
+    WorkoutCard,
+    NewWorkout
   }
 
 };
