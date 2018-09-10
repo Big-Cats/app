@@ -1,5 +1,6 @@
 const URL = '/api';
 const AUTH_URL = `${URL}/auth`;
+const MOVEMENTS_URL = `${URL}/movements`;
 
 // helper functions
 
@@ -67,6 +68,11 @@ export function checkForToken() {
   token = user.id;
   return user;
 }
-
+export function getMovements() {
+  return fetch(MOVEMENTS_URL, {
+    headers: getHeaders()
+  })
+    .then(responseHandler);
+}
 
 
