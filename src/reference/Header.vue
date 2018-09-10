@@ -2,13 +2,15 @@
   <header>
   
     <RouterLink to="/" class="branding">
-      <h1>Tiger</h1>
+      <img class="logo" alt="Bacon" src="../assets/logo.png">
+      <h1>Bacon</h1>
     </RouterLink>
 
     <nav>
       <RouterLink class="nav" to="/">Home</RouterLink>
       <RouterLink class="nav" to="/about">About</RouterLink>
-      <RouterLink class="nav" v-if="user" to="/dashboard">Dashboard</RouterLink>
+      <RouterLink class="nav" v-if="user" to="/goals">Goals</RouterLink>
+      <RouterLink class="nav" v-if="user" to="/users">Users</RouterLink>
     </nav>
     
     <div class="user-controls">
