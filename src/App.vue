@@ -1,19 +1,44 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Header :user="user"
+            :onSignOut="handleSignOut">
+    </Header>  
+    
+    <RouterView :onUser="handleUser">
+    </RouterView>  
   </div>
 </template>
 
+
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import { checkForToken, signOut } from './services/api';
+import Header from './components/Header.vue';
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    Header
+  },
+  data() {
+    return {
+      user: null
+    };
+  },
+  created() {
+    this.user = checkForToken();
+  },
+  methods: {
+    handleUser(user) {
+      this.user = user;
+    },
+    handleSignOut() {
+      signOut();
+      this.user = null;
+      this.$router.push('/');
+    }
   }
-}
+};
 </script>
 
 <style>

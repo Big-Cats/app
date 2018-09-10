@@ -1,7 +1,5 @@
 const URL = '/api';
 const AUTH_URL = `${URL}/auth`;
-const GOALS_URL = `${URL}/me/goals`;
-const USERS_URL = `${URL}/users`;
 
 // helper functions
 
@@ -70,50 +68,5 @@ export function checkForToken() {
   return user;
 }
 
-
-// goals functions
-
-export function getGoals() {
-  return fetch(GOALS_URL, {
-    headers: getHeaders()
-  })
-    .then(responseHandler);
-}
-
-export function addGoal(goal) {
-  return fetch(GOALS_URL, {
-    method: 'POST',
-    headers: getHeaders(),
-    body: JSON.stringify(goal)
-  })
-    .then(responseHandler);
-}
-
-export function updateGoal(goal) {
-  return fetch(GOALS_URL, {
-    method: 'PUT',
-    headers: getHeaders(),
-    body: JSON.stringify(goal)
-  })
-    .then(responseHandler);
-}
-
-export function removeGoal() {
-  return fetch(GOALS_URL, {
-    method: 'DELETE',
-    headers: getHeaders()
-  })
-    .then(responseHandler);
-}
-
-
-// users functions
-
-export function getUsers() {
-  return fetch(USERS_URL, {
-    headers: getHeaders()
-  })
-    .then(responseHandler);
-}
 
 

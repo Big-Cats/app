@@ -84,6 +84,7 @@ export default {
       action(this.credentials)
         .then(user => {
           this.onUser(user);
+          console.log(user);
           this.$router.push('/');
         })
         .catch(err => {

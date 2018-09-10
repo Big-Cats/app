@@ -3,7 +3,7 @@ import VueRouter from 'vue-router';
 import App from './App.vue';
 import router from './router';
 import './main.css';
-import './tabs.css';
+// import './tabs.css';
 
 
 Vue.config.productionTip = false;
