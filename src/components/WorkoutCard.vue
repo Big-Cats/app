@@ -23,8 +23,5 @@ export default {
 </script>
 
 <style>
-li {
-  border: 1px solid black;
-}
 
 </style>

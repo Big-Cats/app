@@ -53,5 +53,11 @@ export default {
 </script>
 
 <style>
+ul {
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  border: 1px solid black;
+}
 
 </style>
