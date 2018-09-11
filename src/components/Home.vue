@@ -2,8 +2,7 @@
   <main>
     <h2>Can you bring home the bacon?</h2>
     <p>
-      Here at bacon, we think goal setting matters. We want to help people achieve what they desire, which is bringing home the bacon.
-    </p>
+      Here at TigerFit, we think goal setting matters. We want to help people achieve what they desire!    </p>
     <p class="center">
       <img src="../assets/bacon.gif" />
     </p>

@@ -1,8 +1,8 @@
 <template>
   <header>
-  
+
     <RouterLink to="/" class="branding">
-      <h1>Tiger</h1>
+      <h1>TigerFit</h1>
     </RouterLink>
 
     <nav>
@@ -58,13 +58,6 @@ export default {
   background-color: rgba(65,214,195,0);
   border: 4px solid #ffd90000;
 }
-
-img.logo {
-  width: 50px;
-  height: 50px;
-  
-}
-
 .nav {
   display: inline-block;
   width: 140px;
