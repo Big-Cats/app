@@ -1,11 +1,13 @@
 <template>
   <div id="app">
     <Header :user="user"
-            :onSignOut="handleSignOut">
-    </Header>  
-    
+    :onSignOut="handleSignOut"
+    />
+  
     <RouterView :onUser="handleUser">
-    </RouterView>  
+    </RouterView> 
+
+    <Footer/> 
   </div>
 </template>
 
@@ -13,11 +15,13 @@
 <script>
 import { checkForToken, signOut } from './services/api';
 import Header from './components/Header.vue';
+import Footer from './components/Footer.vue';
 
 export default {
   name: 'app',
   components: {
-    Header
+    Header,
+    Footer
   },
   data() {
     return {

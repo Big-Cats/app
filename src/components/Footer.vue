@@ -1,7 +1,7 @@
 <template>
   <footer>
-    <img alt="Bacon" src="../assets/logo.png">
-    <p>© Toumey Enterprises - 2018</p>
+    <!-- <img alt="Bacon" src="../assets/logo.png"> -->
+    <p>© Team BigCat - 2018</p>
   </footer>
 </template>
 
@@ -18,8 +18,8 @@ img {
   padding-top: 10px;
 }
 footer {
-  background-color: black;
-  color: rgb(189, 189, 189);
+  background-color: var(--gymred);
+  color:white;
 }
 
 </style>

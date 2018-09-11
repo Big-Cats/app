@@ -1,6 +1,6 @@
 <template>
   <main>
-    <h2>Can you bring home the bacon?</h2>
+    <h2>Making Fitness Goals Achieveable Since 2018</h2>
     <p>
       Here at TigerFit, we think goal setting matters. We want to help people achieve what they desire!    </p>
     <p class="center">
