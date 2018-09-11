@@ -2,6 +2,7 @@ const URL = '/api';
 const AUTH_URL = `${URL}/auth`;
 const MOVEMENTS_URL = `${URL}/movements`;
 const PROGRAMS_URL = `${URL}/programs`;
+const WORKOUTS_URL = `${URL}/me/workouts`;
 
 // helper functions
 
@@ -79,6 +80,22 @@ export function getMovements() {
 export function getPrograms() {
   return fetch(PROGRAMS_URL, {
     headers: getHeaders()
+  })
+    .then(responseHandler);
+}
+
+export function getWorkouts() {
+  return fetch(WORKOUTS_URL, {
+    headers: getHeaders()
+  })
+    .then(responseHandler());
+}
+
+export function addWorkout(workout) {
+  return fetch(WORKOUTS_URL, {
+    method: 'POST',
+    headers: getHeaders(),
+    body: JSON.stringify(workout)
   })
     .then(responseHandler);
 }
