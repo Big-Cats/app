@@ -2,8 +2,12 @@
   <div id="app">
     <Header :user="user"
             :onSignOut="handleSignOut">
-    </Header>  
-    
+    </Header>
+
+    <div> 
+      <p> {{  }}</p>
+    </div>
+
     <RouterView :onUser="handleUser">
     </RouterView>  
   </div>
@@ -26,18 +30,23 @@ export default {
       programSet: {},
       movements: [],
       muscles: [],
+      muscleMovements: {},
+
+      selectedMuscle: ''
     };
   },
   computed: {
-    muscleMovements() {
-      return null;
-    },
+
     selectedMuscleMovements() {
       return null;
     }
   },
   created() {
     this.user = checkForToken();
+    
+    this.updateCoreData();
+
+
   },
   methods: {
     handleUser(user) {
@@ -47,7 +56,68 @@ export default {
       signOut();
       this.user = null;
       this.$router.push('/');
-    }
+    },
+
+    getMuscleMovements() {
+      this.muscles.forEach((item) => {
+        this.muscleMovements[item.name] = [];
+      });
+      this.movements.forEach((item) => {
+        this.muscleMovements[item.muscle].push(item);
+      });
+      console.log('MUSCLE MOVEMENTS', this.muscleMovements);
+    },
+
+
+    updateCoreData() {
+      this.loading = true;
+      this.error = null;
+
+      getWorkouts()
+        .then(response => {
+          this.workoutSet = response;
+          console.log('WORKOUT SET', this.workoutSet);
+          this.loading = false;
+        })
+        .catch(err => {
+          this.error = err.message;
+          this.loading = false;
+        });
+      getPrograms()
+        .then(response => {
+          this.programSet = response;
+          console.log('PROGRAM SET', this.programSet);
+          this.loading = false;
+        })
+        .catch(err => {
+          this.error = err.message;
+          this.loading = false;
+        });
+      getMovements()
+        .then(response => {
+          this.movements = response;
+          console.log('MOVEMENTS', this.movements);
+          this.loading = false;
+        })
+        .catch(err => {
+          this.error = err.message;
+          this.loading = false;
+        });
+      getMuscles()
+        .then(response => {
+          this.muscles = response;
+          console.log('MUSCLES', this.muscles);
+          this.loading = false;
+        })
+        .then(() => {
+          this.getMuscleMovements();
+        })
+        .catch(err => {
+          this.error = err.message;
+          this.loading = false;
+        });
+
+    },
   }
 };
 </script>
