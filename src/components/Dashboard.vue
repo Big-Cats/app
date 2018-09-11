@@ -1,16 +1,23 @@
 <template>
     <div>
         <h2>Workouts</h2>
-        <NewWorkout :programs="programs"/>
-        <WorkoutCard :movements="movements"
-                    :programs="programs"/>
+        <AddWorkout
+          :programs="programs"
+        />
+        <ul>
+          <WorkoutCard 
+            :movements="movements"
+            :programs="programs"
+          />        
+        </ul>
     </div>
 </template>
 
 <script>
 import WorkoutCard from './WorkoutCard.vue';
-import NewWorkout from './NewWorkout.vue';
+import AddWorkout from './AddWorkout.vue';
 import { getMovements, getPrograms } from '../services/api';
+
 export default {
   data(){
     return {
@@ -37,7 +44,7 @@ export default {
   },
   components: {
     WorkoutCard,
-    NewWorkout
+    AddWorkout
   }
 
 };
