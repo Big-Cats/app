@@ -1,31 +1,29 @@
 <template>
-    <div>
-        <p>Excercise 1</p>
-        <p>Exercise 2</p>
-        <FormControl label="New Movement">
-            <select>
-                <option v-for="movement in movements"
-                :movement="movement"
-                :key="movement.id"
-                :name="movement.name">{{ movement.name }}</option>
-            </select>
-        </FormControl>
-    </div>
+    <li>
+      <ExerciseCounter/>
+      <AddExercise :movements="movements"/>
+    </li>
 </template>
 
 <script>
-import FormControl from './FormControl.vue';
+import AddExercise from './AddExercise.vue';
+import ExerciseCounter from './ExerciseCounter.vue';
+
 export default {
   props: {
     movements: Array
   },
   components: {
-    FormControl
+    AddExercise,
+    ExerciseCounter
   }
 
 };
 </script>
 
 <style>
+li {
+  border: 1px solid black;
+}
 
 </style>
