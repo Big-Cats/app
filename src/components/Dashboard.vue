@@ -26,9 +26,11 @@ export default {
     };
   },
   created() {
+
     getMovements()
       .then(movements => {
         this.movements = movements;
+
       })
       .catch(err => {
         this.error = err;

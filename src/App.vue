@@ -11,7 +11,7 @@
 
 
 <script>
-import { checkForToken, signOut } from './services/api';
+import { checkForToken, signOut, getWorkouts, getLogs, getPrograms, getMovements, getMuscles } from './services/api';
 import Header from './components/Header.vue';
 
 export default {
@@ -21,8 +21,20 @@ export default {
   },
   data() {
     return {
-      user: null
+      user: null,
+      workoutSet: {},
+      programSet: {},
+      movements: [],
+      muscles: [],
     };
+  },
+  computed: {
+    muscleMovements() {
+      return null;
+    },
+    selectedMuscleMovements() {
+      return null;
+    }
   },
   created() {
     this.user = checkForToken();
