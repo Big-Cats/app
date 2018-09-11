@@ -17,7 +17,8 @@
 import FormControl from './FormControl.vue';
 export default {
   props: {
-    movements: Array
+    movements: Array,
+    program: Object
   },
   components: {
     FormControl
