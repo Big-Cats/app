@@ -1,6 +1,6 @@
 <template>
   <footer>
-    <!-- <img alt="Bacon" src="../assets/logo.png"> -->
+    <img alt="logo" src="../assets/logo.png">
     <p>© Team BigCat - 2018</p>
   </footer>
 </template>
@@ -18,8 +18,8 @@ img {
   padding-top: 10px;
 }
 footer {
-  background-color: var(--gymred);
-  color:white;
+  /* background-color: var(--gymred); */
+  color: black;
 }
 
 </style>

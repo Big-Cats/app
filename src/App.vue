@@ -4,7 +4,8 @@
     :onSignOut="handleSignOut"
     />
   
-    <RouterView :onUser="handleUser">
+    <RouterView :user="user"
+    :onUser="handleUser">
     </RouterView> 
 
     <Footer/> 

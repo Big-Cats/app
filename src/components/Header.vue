@@ -2,6 +2,7 @@
   <header>
 
     <RouterLink to="/" class="branding">
+      <img class="logo" alt="logo" src="../assets/logo.png">
       <h1>TigerFit</h1>
     </RouterLink>
 
@@ -57,6 +58,11 @@ export default {
   box-shadow: 0.5px 0.5px 0.5px black;
   background-color: rgba(65,214,195,0);
   border: 4px solid #ffd90000;
+}
+img.logo {
+  width: 50px;
+  height: 50px;
+  
 }
 .nav {
   display: inline-block;
