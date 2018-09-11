@@ -1,5 +1,16 @@
 # app
 
+## TODO
+
+* bring the core data that we got down to components
+* initial crud to add:
+  * add workout
+  * remove workout
+  * add log
+  * update log
+  * remove log
+
+
 ## Project setup
 ```
 npm install
