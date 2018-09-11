@@ -1,6 +1,10 @@
 const URL = '/api';
 const AUTH_URL = `${URL}/auth`;
 const MOVEMENTS_URL = `${URL}/movements`;
+const PROGRAMS_URL = `${URL}/programs`;
+const WORKOUTS_URL = `${URL}/me/workouts`;
+const LOGS_URL = `${URL}/me/logs`;
+const MUSCLES_URL = `${URL}/muscles`;
 
 // helper functions
 
@@ -18,7 +22,6 @@ function getHeaders() {
   if(token) headers['Authorization'] = token;
   return headers;
 }
-
 
 // auth functions
 
@@ -68,6 +71,15 @@ export function checkForToken() {
   token = user.id;
   return user;
 }
+//muscles
+export function getMuscles() {
+  return fetch(MUSCLES_URL, {
+    headers: getHeaders()
+  })
+    .then(responseHandler);
+}
+
+//movements
 export function getMovements() {
   return fetch(MOVEMENTS_URL, {
     headers: getHeaders()
@@ -75,4 +87,84 @@ export function getMovements() {
     .then(responseHandler);
 }
 
+export function addMovement(movement) {
+  return fetch(MOVEMENTS_URL, {
+    method: 'POST',
+    headers: getHeaders(),
+    body: JSON.stringify(movement)
+  })
+    .then(responseHandler);
+}
 
+//programs
+export function getPrograms() {
+  return fetch(PROGRAMS_URL, {
+    headers: getHeaders()
+  })
+    .then(responseHandler);
+}
+export function addProgram(program) {
+  return fetch(`${PROGRAMS_URL}`, {
+    method: 'POST',
+    headers: getHeaders(),
+    body: JSON.stringify(program)
+  })
+    .then(responseHandler);
+}
+
+//workouts
+export function getWorkouts() {
+  return fetch(WORKOUTS_URL, {
+    headers: getHeaders()
+  })
+    .then(responseHandler);
+}
+
+export function addWorkout(workout) {
+  return fetch(WORKOUTS_URL, {
+    method: 'POST',
+    headers: getHeaders(),
+    body: JSON.stringify(workout)
+  })
+    .then(responseHandler);
+}
+
+export function removeWorkout(id) {
+  return fetch(`${WORKOUTS_URL}/${id}`, {
+    method: 'DELETE'
+  })
+    .then(responseHandler);
+}
+
+//logs
+export function getLogs() {
+  return fetch(LOGS_URL, {
+    headers: getHeaders()
+  })
+    .then(responseHandler);
+}
+
+export function addLog(log) {
+  return fetch(LOGS_URL, {
+    method: 'POST',
+    headers: getHeaders(),
+    body: JSON.stringify(log)
+  })
+    .then(responseHandler);
+}
+
+export function updateLog(log) {
+  return fetch(`${LOGS_URL}/${log.id}`, {
+    method: 'PUT',
+    headers: getHeaders(),
+    body: JSON.stringify(log)
+  })
+    .then(responseHandler);
+}
+
+export function removeLog(id){
+  return fetch(`${LOGS_URL}/${id}`, {
+    method: 'DELETE'
+  })
+    .then(responseHandler);
+}
