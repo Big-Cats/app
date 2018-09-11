@@ -11,7 +11,8 @@ import ExerciseCounter from './ExerciseCounter.vue';
 
 export default {
   props: {
-    movements: Array
+    movements: Array,
+    program: Object
   },
   components: {
     AddExercise,
