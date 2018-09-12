@@ -1,15 +1,6 @@
 <template>
   <form class="add-exercise">
-    <h3>Add Exercise</h3>
-    <FormControl label="Select" class="exercise-selector">
-        <select v-model="selectedMuscle" v-on:change="handleChange" class="pulldown">
-          <option v-for="muscle in Object.keys(muscleMovements)"
-            :muscle="muscle"
-            :key="muscle.id"
-            :name="muscle">{{ muscle }}
-          </option>
-        </select>
-      </FormControl>
+
     <FormControl label="New Movement" class="exercise-selector">
       <select class="pulldown">
         <option v-for="movement in muscleMovements[this.selectedMuscle]"
@@ -19,6 +10,65 @@
         </option>
       </select>
     </FormControl>
+  <form class="add-exercise">
+    <FormControl label="Add Exercise" >
+
+        <FormControl label="Muscles" class="exercise-selector">
+          <select 
+            v-if="muscleMovements"
+            v-model="selectedMuscle"
+            v-on:change="handleChange"
+            class="pulldown"
+          >
+            <option 
+              v-for="muscle in muscles"
+              :key="muscle.id"
+            >
+              {{ muscle.name }}
+            </option>
+          </select>
+        </FormControl>
+        
+        <FormControl label="Movements" class="exercise-selector">
+          <select
+            class="pulldown"
+          >
+            <option 
+              v-for="movement in muscleMovements[this.selectedMuscle]"
+              :movement="movement"
+              :key="movement.id"
+              :name="movement.name"
+            >
+              {{ movement.name }}
+            </option>
+          </select>
+        </FormControl>
+
+        <FormControl label="Sets" class="exercise-selector">
+          <select class="pulldown">
+            <option
+              v-for="element in [1,2,3,4,5,6,7,8,9,10]"
+              :key="element"
+            >
+              {{ element }}
+            </option>
+          </select>          
+        </FormControl>
+
+        <FormControl label="Reps" class="exercise-selector">
+          <select class="pulldown">
+            <option
+              v-for="element in [1,2,3,4,5,6,7,8,9,10]"
+              :key="element"
+            >
+              {{ element }}
+            </option>
+          </select>          
+        </FormControl>
+
+
+      </FormControl>
+      <button @click.prevent="onExerciseAdd">Add</button>
   </form>
 </template>
 
@@ -28,21 +78,32 @@ export default {
   
   props: {
     movements: Array,
+    muscles: Array,
     muscleMovements: Object,
-    selectedMuscle: String
-  },
-  computed: {
-    selectMuscle() {
-      return this.selectedMuscle;
-    }
+    selectedMuscle: String,
+    handleAddLog: Function
   },
   components: {
     FormControl
   },
+  computed: {
+    selectMuscle() {
+      return null;
+    }
+  },
   methods: {
     handleChange() {
+      // use selectedMuscle
+      // selectedMuscle
+    },
 
+    onExerciseAdd() {
+      console.log('I will add the new exercise');
+      console.log(Object.keys(this.muscleMovements));
+      // handleAddLog();
     }
+
+
   }
 
 };
@@ -55,7 +116,6 @@ export default {
   background-color: #F7EDEA;
   border-radius: .5em;
   padding: .5em 0 1em 1em;
-
 }
 
 .exercise-selector {
@@ -69,4 +129,5 @@ export default {
 .pulldown {
   border-radius: .2em;
 }
+
 </style>

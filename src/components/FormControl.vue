@@ -25,12 +25,9 @@ export default {
   width:fit-content;
   text-align: left;
   /* border: 1px solid black; */
-  
-
 }
 
 label {
-  display: block;
   font-weight: bolder;
   margin: .4em;
 }

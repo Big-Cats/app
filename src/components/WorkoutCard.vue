@@ -1,15 +1,17 @@
 <template>
     <li>
-      <p>I am workout card</p>
       <ExerciseCounter
         v-for="(exercise, index) in exercises"
         :key="index"
-        :exercise="exercises.index"
-      />
+        :exercise="exercise"
+      > 
+      </ExerciseCounter>
       <AddExercise 
         :movements="movements"
+        :muscles="muscles"
         :muscleMovements="muscleMovements"
         :selectedMuscle="selectedMuscle"
+        :handleAddLog="handleAddLog"
       />
     </li>
 </template>
@@ -21,9 +23,11 @@ import ExerciseCounter from './ExerciseCounter.vue';
 export default {
   props: {
     movements: Array,
+    muscles: Array,
     muscleMovements: Object,
     selectedMuscle: String,
-    exercises: Array
+    exercises: Array,
+    handleAddLog: Function
   },
   components: {
     AddExercise,
