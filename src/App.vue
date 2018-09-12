@@ -137,12 +137,12 @@ export default {
     },
 
     handleAddWorkout() {
-      console.log('receiving call');
-      // addWorkout(workout)
-      //   .then(saved => {
-      //     this.goals.push(saved);
-      //     this.$router.push('/goals/list');
-      //   });
+      addWorkout();
+      console.log('workout added');
+      // .then(saved => {
+      //   this.goals.push(saved);
+      //   this.$router.push('/goals/list');
+      // });
     },
     handleRemoveWorkout() {
       if(!confirm(`Are you sure you want to remove the workout on ${this.workout.date}?`)) {
