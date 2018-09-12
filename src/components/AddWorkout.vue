@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div class="add-workout">
+    <h3>Add a New Workout</h3>
     <FormControl label="New Workout">
       <select v-model="program">
         <option disabled value=''>Choose A Workout</option>
@@ -35,5 +36,9 @@ export default {
 </script>
 
 <style>
+
+.add-workout {
+  border: 1px solid black;
+}
 
 </style>

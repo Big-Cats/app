@@ -1,6 +1,7 @@
 <template>
   <form>
-    <FormControl label="Muscle Group">
+    <h3>Add Exercise</h3>
+    <FormControl label="Select">
         <select v-model="selectedMuscle" v-on:change="handleChange">
           <option v-for="muscle in Object.keys(muscleMovements)"
             :muscle="muscle"
