@@ -54,18 +54,19 @@ export default {
       muscles: [],
       muscleMovements: {},
 
-      selectedMuscle: ''
+      selectedMuscle: 'abdominals'
     };
+  },
+  created() {
+    console.log('HELLO THERE');
+    this.user = checkForToken();
+    this.updateCoreData();
   },
   computed: {
 
     selectedMuscleMovements() {
       return null;
     }
-  },
-  created() {
-    this.user = checkForToken();
-    this.updateCoreData();
   },
   methods: {
     handleUser(user) {
@@ -77,6 +78,16 @@ export default {
       this.$router.push('/');
     },
 
+    getMuscleMovements() {
+      console.log('!!!!!!!!!!!!!!!', this.muscles);
+      this.muscles.forEach((item) => {
+        this.muscleMovements[item.name] = [];
+      });
+      this.movements.forEach((item) => {
+        this.muscleMovements[item.muscle].push(item);
+      });
+      console.log('MUSCLE MOVEMENTS', this.muscleMovements);
+    },
     updateCoreData() {
       this.loading = true;
       this.error = null;
@@ -126,15 +137,6 @@ export default {
         });
     },
     
-    getMuscleMovements() {
-      this.muscles.forEach((item) => {
-        this.muscleMovements[item.name] = [];
-      });
-      this.movements.forEach((item) => {
-        this.muscleMovements[item.muscle].push(item);
-      });
-      console.log('MUSCLE MOVEMENTS', this.muscleMovements);
-    },
 
     handleAddWorkout() {
       addWorkout();

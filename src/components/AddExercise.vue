@@ -2,11 +2,11 @@
   <form>
     <h3>Add Exercise</h3>
     <FormControl label="Select">
-        <select v-model="selectedMuscle" v-on:change="handleChange">
-          <option v-for="muscle in Object.keys(muscleMovements)"
-            :muscle="muscle"
+        <select v-if="muscleMovements"
+        v-model="selectedMuscle" v-on:change="handleChange">
+          <option v-for="muscle in muscles"
             :key="muscle.id"
-            :name="muscle">{{ muscle }}
+            >{{ muscle.name }}
           </option>
         </select>
       </FormControl>
@@ -28,6 +28,7 @@ export default {
   
   props: {
     movements: Array,
+    muscles: Array,
     muscleMovements: Object,
     selectedMuscle: String
   },
