@@ -1,6 +1,6 @@
 <template>
   <footer>
-    <img alt="logo" src="../assets/logo.png">
+    <img alt="logo" src="../assets/icon.png">
     <p>© Team BigCat - 2018</p>
   </footer>
 </template>
