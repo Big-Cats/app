@@ -2,6 +2,7 @@
   <div>
     <FormControl label="New Workout">
       <select v-model="program">
+        <option disabled value=''>Choose A Workout</option>
         <option v-for="program in programs"
               :program="program"
               :key="program.id"

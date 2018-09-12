@@ -1,13 +1,11 @@
 <template>
     <div>
         <h2>Workouts</h2>
-        <AddWorkout
-          :programs="programs"
-        />
+        <AddWorkout/>
         <ul>
-          <WorkoutCard 
-            :movements="movements"
-            :programs="programs"
+          <WorkoutCard :movements="movements"
+          :muscleMovements="muscleMovements"
+          :selectedMuscle="selectedMuscle"
           />        
         </ul>
     </div>
@@ -16,33 +14,18 @@
 <script>
 import WorkoutCard from './WorkoutCard.vue';
 import AddWorkout from './AddWorkout.vue';
-import { getMovements, getPrograms } from '../services/api';
 
 export default {
-  data(){
-    return {
-      movements: null,
-      programs: null
-    };
+  props: {
+    workoutSet: Array,
+    programSet: Array,
+    movements: Array,
+    muscles: Array,
+    muscleMovements: Object,
+    selectedMuscle: String
   },
   created() {
 
-    getMovements()
-      .then(movements => {
-        this.movements = movements;
-
-      })
-      .catch(err => {
-        this.error = err;
-      });
-    getPrograms()
-      .then(programs => {
-        this.programs = programs;
-      })
-      .catch(err => {
-        this.error = err;
-      });
-        
   },
   components: {
     WorkoutCard,

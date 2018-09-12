@@ -1,7 +1,10 @@
 <template>
     <li>
       <ExerciseCounter/>
-      <AddExercise :movements="movements"/>
+      <AddExercise :movements="movements"
+        :muscleMovements="muscleMovements"
+        :selectedMuscle="selectedMuscle"
+      />
     </li>
 </template>
 
@@ -12,7 +15,8 @@ import ExerciseCounter from './ExerciseCounter.vue';
 export default {
   props: {
     movements: Array,
-    program: Object
+    muscleMovements: Object,
+    selectedMuscle: String
   },
   components: {
     AddExercise,
