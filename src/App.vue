@@ -121,26 +121,34 @@ export default {
           this.movements = response;
           console.log('MOVEMENTS', this.movements);
           this.loading = false;
+        }).then(() => {
+          getMuscles()
+            .then(response => {
+              this.muscles = response;
+              console.log('MUSCLES', this.muscles);
+              this.loading = false;
+            })
+            .then(() => {
+              this.getMuscleMovements();
+            });
         })
         .catch(err => {
           this.error = err.message;
           this.loading = false;
         });
-      getMuscles()
-        .then(response => {
-          this.muscles = response;
-          console.log('MUSCLES', this.muscles);
-          this.loading = false;
-        })
-        .then(() => {
-          this.getMuscleMovements();
-        })
-        .catch(err => {
-          this.error = err.message;
-          this.loading = false;
-        });
+      
+
     },
     
+
+
+
+
+
+
+
+
+
 
     handleAddWorkout() {
       addWorkout();
