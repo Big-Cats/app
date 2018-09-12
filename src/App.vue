@@ -21,7 +21,9 @@
       :muscleMovements="muscleMovements"
       :selectedMuscle="selectedMuscle"
       :user="user"
-      :onUser="handleUser">
+      :onUser="handleUser"
+      :handleAddLog="handleAddLog"
+    >
     </RouterView> 
 
     <Footer/> 
@@ -57,16 +59,17 @@ export default {
       selectedMuscle: ''
     };
   },
+  created() {
+    this.user = checkForToken();
+    this.updateCoreData();
+  },
   computed: {
 
     selectedMuscleMovements() {
       return null;
     }
   },
-  created() {
-    this.user = checkForToken();
-    this.updateCoreData();
-  },
+
   methods: {
     handleUser(user) {
       this.user = user;
@@ -76,6 +79,17 @@ export default {
       this.user = null;
       this.$router.push('/');
     },
+
+    getMuscleMovements() {
+      this.muscles.forEach((item) => {
+        this.muscleMovements[item.name] = [];
+      });
+      this.movements.forEach((item) => {
+        this.muscleMovements[item.muscle].push(item);
+      });
+      console.log('MUSCLE MOVEMENTS', this.muscleMovements);
+    },
+
 
     updateCoreData() {
       this.loading = true;
@@ -126,16 +140,6 @@ export default {
         });
     },
     
-    getMuscleMovements() {
-      this.muscles.forEach((item) => {
-        this.muscleMovements[item.name] = [];
-      });
-      this.movements.forEach((item) => {
-        this.muscleMovements[item.muscle].push(item);
-      });
-      console.log('MUSCLE MOVEMENTS', this.muscleMovements);
-    },
-
     handleAddWorkout() {
       addWorkout();
       console.log('workout added');

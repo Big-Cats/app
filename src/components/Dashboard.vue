@@ -12,6 +12,7 @@
               :muscleMovements="muscleMovements"
               :selectedMuscle="selectedMuscle"
               :exercises="workout.exercises"
+              :handleAddLog="handleAddLog"
             />        
           </ul>
         </div>
@@ -29,7 +30,8 @@ export default {
     movements: Array,
     muscles: Array,
     muscleMovements: Object,
-    selectedMuscle: String
+    selectedMuscle: String,
+    handleAddLog: Function
   },
   created() {
 
