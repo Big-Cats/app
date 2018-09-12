@@ -2,8 +2,8 @@
   <header>
 
     <RouterLink to="/" class="branding">
-      <img class="logo" alt="logo" src="../assets/logo.png">
-      <h1>TigerFit</h1>
+      <img class="logo" alt="logo" src="../assets/icon.png">
+      <h1>Maximum Intensity</h1>
     </RouterLink>
 
     <nav>
@@ -60,8 +60,8 @@ export default {
   border: 4px solid #ffd90000;
 }
 img.logo {
-  width: 50px;
-  height: 50px;
+  width: 100px;
+  height: 100px;
   
 }
 .nav {
