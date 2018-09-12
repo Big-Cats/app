@@ -5,7 +5,7 @@
         <div class="workout-cards">
           <h3>Workout List</h3>
           <ul>
-            <WorkoutCard 
+            <WorkoutCard class="workout-card"
               v-for="(workout, index) in workoutSet"
               :key="index"
               :movements="movements"
@@ -49,12 +49,20 @@ export default {
 ul {
   list-style-type: none;
   display: grid;
+  grid-gap: 1.5em;
   grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
   border: 1px solid black;
+  
 }
 
 .workout-cards {
   border: 1px solid black;
 }
 
+.workout-card {
+  border-radius: 1em;
+  border: 2px solid #C97560;
+  padding: 1em;
+  background-color: #FFE2DB;
+}
 </style>

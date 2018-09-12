@@ -1,12 +1,24 @@
 <template>
-  <form>
-    <FormControl label="Add Exercise">
+  <form class="add-exercise">
 
-        <FormControl label="Muscles">
+    <FormControl label="New Movement" class="exercise-selector">
+      <select class="pulldown">
+        <option v-for="movement in muscleMovements[this.selectedMuscle]"
+          :movement="movement"
+          :key="movement.id"
+          :name="movement.name">{{ movement.name }}
+        </option>
+      </select>
+    </FormControl>
+  <form class="add-exercise">
+    <FormControl label="Add Exercise" >
+
+        <FormControl label="Muscles" class="exercise-selector">
           <select 
             v-if="muscleMovements"
             v-model="selectedMuscle"
             v-on:change="handleChange"
+            class="pulldown"
           >
             <option 
               v-for="muscle in muscles"
@@ -17,8 +29,10 @@
           </select>
         </FormControl>
         
-        <FormControl label="Movements">
-          <select>
+        <FormControl label="Movements" class="exercise-selector">
+          <select
+            class="pulldown"
+          >
             <option 
               v-for="movement in muscleMovements[this.selectedMuscle]"
               :movement="movement"
@@ -30,8 +44,8 @@
           </select>
         </FormControl>
 
-        <FormControl label="Sets">
-          <select>
+        <FormControl label="Sets" class="exercise-selector">
+          <select class="pulldown">
             <option
               v-for="element in [1,2,3,4,5,6,7,8,9,10]"
               :key="element"
@@ -41,8 +55,8 @@
           </select>          
         </FormControl>
 
-        <FormControl label="Reps">
-          <select>
+        <FormControl label="Reps" class="exercise-selector">
+          <select class="pulldown">
             <option
               v-for="element in [1,2,3,4,5,6,7,8,9,10]"
               :key="element"
@@ -96,14 +110,24 @@ export default {
 </script>
 
 <style>
-
-select {
-  /* width: fit-content; */
-  width: 200px;
+.add-exercise {
+  display: flex;
+  border: 2px solid #C97560;
+  background-color: #F7EDEA;
+  border-radius: .5em;
+  padding: .5em 0 1em 1em;
 }
 
-form {
-  width:fit-content;
+.exercise-selector {
+  display: inline-block;
+  margin: auto;
+  padding: 0 .2em;
+  border-radius: .3em;
+  border: 1px solid #C97560;
+}
+
+.pulldown {
+  border-radius: .2em;
 }
 
 </style>
