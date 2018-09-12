@@ -1,7 +1,7 @@
 <template>
   <form>
     <FormControl label="Muscle Group">
-        <select>
+        <select v-model="selectedMuscle" v-on:change="handleChange">
           <option v-for="muscle in Object.keys(muscleMovements)"
             :muscle="muscle"
             :key="muscle.id"
@@ -24,16 +24,24 @@
 <script>
 import FormControl from './FormControl.vue';
 export default {
+  
   props: {
     movements: Array,
     muscleMovements: Object,
     selectedMuscle: String
   },
-  created() {
-    this.selectedMuscle = '';
+  computed: {
+    selectMuscle() {
+      return this.selectedMuscle;
+    }
   },
   components: {
     FormControl
+  },
+  methods: {
+    handleChange() {
+
+    }
   }
 
 };
