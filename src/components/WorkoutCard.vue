@@ -9,6 +9,7 @@
       <AddExercise 
         :movements="movements"
         :muscles="muscles"
+        :workout="workout"
         :muscleMovements="muscleMovements"
         :selectedMuscle="selectedMuscle"
         :handleAddLog="handleAddLog"
@@ -27,6 +28,7 @@ export default {
     muscleMovements: Object,
     selectedMuscle: String,
     exercises: Array,
+    workout: Object,
     handleAddLog: Function
   },
   components: {

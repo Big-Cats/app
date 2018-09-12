@@ -7,7 +7,6 @@
           <select 
             v-if="muscleMovements"
             v-model="selectedMuscle"
-            v-on:change="handleChange"
             class="pulldown"
           >
             <option 
@@ -22,6 +21,7 @@
         <FormControl label="Movements" class="exercise-selector">
           <select
             class="pulldown"
+            v-model="selectedMovement"
           >
             <option 
               v-for="movement in muscleMovements[this.selectedMuscle]"
@@ -35,7 +35,10 @@
         </FormControl>
 
         <FormControl label="Sets" class="exercise-selector">
-          <select class="pulldown">
+          <select 
+            class="pulldown"
+            v-model="sets"
+          >
             <option
               v-for="element in [1,2,3,4,5,6,7,8,9,10]"
               :key="element"
@@ -46,7 +49,10 @@
         </FormControl>
 
         <FormControl label="Reps" class="exercise-selector">
-          <select class="pulldown">
+          <select 
+            class="pulldown"
+            v-model="reps"
+          >
             <option
               v-for="element in [1,2,3,4,5,6,7,8,9,10]"
               :key="element"
@@ -54,6 +60,10 @@
               {{ element }}
             </option>
           </select>          
+        </FormControl>
+
+        <FormControl label="Weight" class="exercise-selector">
+          <input v-model="weight" required/>
         </FormControl>
 
 
@@ -70,27 +80,44 @@ export default {
     movements: Array,
     muscles: Array,
     muscleMovements: Object,
-    selectedMuscle: String,
+    workout: Object,
     handleAddLog: Function
   },
   components: {
     FormControl
   },
-  computed: {
-    selectMuscle() {
-      return null;
-    }
+  data() {
+    return {
+      selectedMuscle: 'abdominals',
+      selectedMovement: null,
+      sets: null,
+      reps: null,
+      weight: null
+    };
   },
+
+
   methods: {
-    handleChange() {
-      // use selectedMuscle
-      // selectedMuscle
-    },
 
     onExerciseAdd() {
-      console.log('I will add the new exercise');
-      console.log(Object.keys(this.muscleMovements));
-      // handleAddLog();
+      // console.log(this.selectedMuscle, this.selectedMovement, this.sets, this.reps, this.weight);
+    // need workout_id, movement_id, attempted, completed, weight
+
+      // const x = 
+      // console.log(x);
+
+      const log = {
+        workout_id: this.workout.id,
+        movement_id: this.movements.find(item => item.name === this.selectedMovement).id,
+        attempted: this.reps,
+        completed: 0,
+        weight: this.weight
+      };
+      console.log('adding log...', log, 'for', this.sets, 'number of times');
+      for(let i = 0; i < this.sets; i++){
+        this.handleAddLog(log);
+      }
+      
     }
 
 
