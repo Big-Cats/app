@@ -2,7 +2,9 @@
     <li>
       <p>I am workout card</p>
       <ExerciseCounter
-        :exercises="exercises"
+        v-for="(exercise, index) in exercises"
+        :key="index"
+        :exercise="exercises.index"
       />
       <AddExercise 
         :movements="movements"

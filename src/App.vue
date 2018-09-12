@@ -14,13 +14,13 @@
     </div>
 
     <RouterView 
-      :user="user"
       :workoutSet="workoutSet"
       :programSet="programSet"
       :movements="movements"
       :muscles="muscles"
       :muscleMovements="muscleMovements"
       :selectedMuscle="selectedMuscle"
+      :user="user"
       :onUser="handleUser">
     </RouterView> 
 
@@ -83,11 +83,7 @@ export default {
 
       getWorkouts()
         .then(response => {
-          const data = response;
-          
-          
-          
-          this.workoutSet = data;
+          this.workoutSet = response;
           console.log('WORKOUT SET', this.workoutSet);
           this.loading = false;
         })
