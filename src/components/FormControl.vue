@@ -24,6 +24,7 @@ export default {
 .form-control {
   width:fit-content;
   text-align: left;
+  border: 1px solid black;
 }
 
 label {

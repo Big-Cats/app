@@ -1,11 +1,11 @@
 <template>
   <div id="app">
-    <Header :user="user"
-    :onSignOut="handleSignOut"
+    <Header 
+      :user="user"
+      :onSignOut="handleSignOut"
     />
   
     <div class="demo">
-      <p> {{  }}</p>
       <button @click.prevent="handleAddWorkout">add workout</button>
       <button @click.prevent="handleRemoveWorkout">remove workout</button>
       <button @click.prevent="handleAddLog">add log</button>
@@ -83,7 +83,11 @@ export default {
 
       getWorkouts()
         .then(response => {
-          this.workoutSet = response;
+          const data = response;
+          
+          
+          
+          this.workoutSet = data;
           console.log('WORKOUT SET', this.workoutSet);
           this.loading = false;
         })
@@ -179,9 +183,9 @@ export default {
     },
     
     
-    handleMuscleSelect() {
+    // handleMuscleSelect() {
       
-    }
+    // }
 
   }
 };

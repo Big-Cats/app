@@ -15,7 +15,7 @@
 
 <script>
 import User from './User';
-import { getUsers } from '../services/api';
+
 export default {
   data() {
     return { 
@@ -23,10 +23,7 @@ export default {
     };
   },
   created() {
-    getUsers()
-      .then(users => {
-        this.users = users;
-      });
+
   },
   components: { 
     User,

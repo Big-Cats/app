@@ -1,7 +1,11 @@
 <template>
     <li>
-      <ExerciseCounter/>
-      <AddExercise :movements="movements"
+      <p>I am workout card</p>
+      <ExerciseCounter
+        :exercises="exercises"
+      />
+      <AddExercise 
+        :movements="movements"
         :muscleMovements="muscleMovements"
         :selectedMuscle="selectedMuscle"
       />
@@ -16,7 +20,8 @@ export default {
   props: {
     movements: Array,
     muscleMovements: Object,
-    selectedMuscle: String
+    selectedMuscle: String,
+    exercises: Array
   },
   components: {
     AddExercise,
@@ -27,5 +32,9 @@ export default {
 </script>
 
 <style>
+
+li {
+  border: 1px solid black;
+}
 
 </style>
