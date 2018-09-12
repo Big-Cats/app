@@ -2,16 +2,19 @@
   <div>
     <h3>Exercise Counter</h3>
     <div 
-      class="set" 
-      v-for="(exercise, i) in exercises" 
-      :key="exercise.i"
+      class="set"
+      v-for="(exercise,key) in exercises" 
+      :key="exercise"
     >
       <p>{{ exercise.movement }}</p>
       <button
+        v-for="(set, index) in exercise[key]"
+        :key="index"
         @click="markAsCompleted(i)" 
         class="set__checkbox" 
         :class="{set__checkbox__completed: set.completed}"
-      > {{ exercise.attempted }}
+      > 
+        {{ exercise.attempted }}
       </button>
     </div>
   </div>
@@ -20,7 +23,7 @@
 <script>
 export default {
   props: {
-    exercises: Array,
+    exercises: Object,
   },
   data() {
     return {

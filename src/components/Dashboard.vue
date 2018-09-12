@@ -6,11 +6,12 @@
           <h3>Workout List</h3>
           <ul>
             <WorkoutCard 
-              
+              v-for="(workout, index) in workoutSet"
+              :key="index"
               :movements="movements"
               :muscleMovements="muscleMovements"
               :selectedMuscle="selectedMuscle"
-              :exercises="workoutSet[0].exercises"
+              :exercises="workoutSet[index].exercises"
             />        
           </ul>
         </div>
