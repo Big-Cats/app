@@ -71,7 +71,7 @@ export default {
     muscles: Array,
     muscleMovements: Object,
     selectedMuscle: String,
-    handleAddLog: Function
+    handleAddLog: Function,
   },
   components: {
     FormControl

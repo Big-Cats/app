@@ -145,7 +145,7 @@ export default {
 
     handleAddWorkout() {
       addWorkout();
-      console.log('workout added');
+      console.log('workout added', this.program);
       // .then(saved => {
       //   this.goals.push(saved);
       //   this.$router.push('/goals/list');

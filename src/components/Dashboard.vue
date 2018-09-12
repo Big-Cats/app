@@ -3,6 +3,7 @@
         <h2>Your Workouts</h2>
         <AddWorkout
         :programSet="programSet"
+        :onAddWorkout="handleAddWorkout"
         />
         <div class="workout-cards">
           <h3>Workout List</h3>
@@ -16,6 +17,8 @@
               :selectedMuscle="selectedMuscle"
               :exercises="workout.exercises"
               :handleAddLog="handleAddLog"
+              :handleAddWorkout="handleAddWorkout"
+
             />        
           </ul>
         </div>
@@ -34,7 +37,8 @@ export default {
     muscles: Array,
     muscleMovements: Object,
     selectedMuscle: String,
-    handleAddLog: Function
+    handleAddLog: Function,
+    handleAddWorkout: Function
   },
   created() {
 
