@@ -19,7 +19,12 @@
 
 
 <script>
-import { checkForToken, signOut, getWorkouts, getLogs, getPrograms, getMovements, getMuscles } from './services/api';
+import { checkForToken, signOut, 
+  getWorkouts, getPrograms, getMovements, getMuscles, 
+  addWorkout, removeWorkout,
+  addLog, removeLog, updateLog 
+}       
+  from './services/api';
 import Header from './components/Header.vue';
 import Footer from './components/Footer.vue';
 
@@ -49,10 +54,7 @@ export default {
   },
   created() {
     this.user = checkForToken();
-    
     this.updateCoreData();
-
-
   },
   methods: {
     handleUser(user) {
@@ -63,17 +65,6 @@ export default {
       this.user = null;
       this.$router.push('/');
     },
-
-    getMuscleMovements() {
-      this.muscles.forEach((item) => {
-        this.muscleMovements[item.name] = [];
-      });
-      this.movements.forEach((item) => {
-        this.muscleMovements[item.muscle].push(item);
-      });
-      console.log('MUSCLE MOVEMENTS', this.muscleMovements);
-    },
-
 
     updateCoreData() {
       this.loading = true;
@@ -124,6 +115,60 @@ export default {
         });
 
     },
+    getMuscleMovements() {
+      this.muscles.forEach((item) => {
+        this.muscleMovements[item.name] = [];
+      });
+      this.movements.forEach((item) => {
+        this.muscleMovements[item.muscle].push(item);
+      });
+      console.log('MUSCLE MOVEMENTS', this.muscleMovements);
+    },
+
+    handleAddWorkout(workout) {
+      addWorkout(workout)
+        .then(saved => {
+          this.goals.push(saved);
+          this.$router.push('/goals/list');
+        });
+    },
+    handleRemoveWorkout() {
+      if(!confirm(`Are you sure you want to remove the workout on ${this.workout.date}?`)) {
+        return;
+      }
+      return removeWorkout(this.workout.id)
+        .then(() => {
+          this.$router.push('/neighborhoods');
+        });
+    },
+
+    handleAddLog(log) {
+      addLog(log)
+        .then(saved => {
+          this.goals.push(saved);
+          this.$router.push('/goals/list');
+        });
+    },
+    handleRemoveLog() {
+      if(!confirm(`Are you sure you want to remove this ${this.log.movement} log?`)) {
+        return;
+      }
+      return removeLog(this.log.id)
+        .then(() => {
+          this.$router.push('/neighborhoods');
+        });
+    },
+    handleUpdateLog(toUpdate) {
+      return updateLog(toUpdate)
+        .then(updated => {
+          this.log = updated;
+          this.editing = false;
+        });
+    }
+
+
+
+
   }
 };
 </script>
