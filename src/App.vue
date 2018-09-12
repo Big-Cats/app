@@ -10,6 +10,12 @@
   
     <RouterView 
       :user="user"
+      :workoutSet="workoutSet"
+      :programSet="programSet"
+      :movements="movements"
+      :muscles="muscles"
+      :muscleMovements="muscleMovements"
+      :selectedMuscle="selectedMuscle"
       :onUser="handleUser">
     </RouterView> 
 
@@ -32,8 +38,8 @@ export default {
   data() {
     return {
       user: null,
-      workoutSet: {},
-      programSet: {},
+      workoutSet: [],
+      programSet: [],
       movements: [],
       muscles: [],
       muscleMovements: {},
@@ -122,7 +128,6 @@ export default {
           this.error = err.message;
           this.loading = false;
         });
-
     },
   }
 };
