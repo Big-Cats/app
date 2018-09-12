@@ -3,7 +3,7 @@
 
     <RouterLink to="/" class="branding">
       <img class="logo" alt="logo" src="../assets/logo.png">
-      <h1>TigerFit</h1>
+      <h1>Maximum Intensity</h1>
     </RouterLink>
 
     <nav>
