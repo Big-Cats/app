@@ -9,6 +9,7 @@
               v-for="(workout, index) in workoutSet"
               :key="index"
               :movements="movements"
+              :muscles="muscles"
               :muscleMovements="muscleMovements"
               :selectedMuscle="selectedMuscle"
               :exercises="workout.exercises"

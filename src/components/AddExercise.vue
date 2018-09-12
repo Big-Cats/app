@@ -3,7 +3,8 @@
     <FormControl label="Add Exercise">
         <select 
           v-if="muscleMovements"
-          v-model="electedMuscle"
+          v-model="selectedMuscle"
+          v-on:change="handleChange"
         >
           <option 
             v-for="muscle in muscles"

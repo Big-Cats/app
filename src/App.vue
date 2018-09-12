@@ -56,10 +56,11 @@ export default {
       muscles: [],
       muscleMovements: {},
 
-      selectedMuscle: ''
+      selectedMuscle: 'abdominals'
     };
   },
   created() {
+
     this.user = checkForToken();
     this.updateCoreData();
   },
@@ -81,6 +82,7 @@ export default {
     },
 
     getMuscleMovements() {
+
       this.muscles.forEach((item) => {
         this.muscleMovements[item.name] = [];
       });
@@ -89,7 +91,6 @@ export default {
       });
       console.log('MUSCLE MOVEMENTS', this.muscleMovements);
     },
-
 
     updateCoreData() {
       this.loading = true;
@@ -140,6 +141,7 @@ export default {
         });
     },
     
+
     handleAddWorkout() {
       addWorkout();
       console.log('workout added');
