@@ -23,6 +23,7 @@
       :user="user"
       :onUser="handleUser"
       :handleAddLog="handleAddLog"
+      :handleAddWorkout="handleAddWorkout"
     >
     </RouterView> 
 

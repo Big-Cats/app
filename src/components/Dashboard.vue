@@ -1,7 +1,9 @@
 <template>
     <div>
         <h2>Your Workouts</h2>
-        <AddWorkout/>
+        <AddWorkout
+        :programSet="programSet"
+        />
         <div class="workout-cards">
           <h3>Workout List</h3>
           <ul>
