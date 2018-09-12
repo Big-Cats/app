@@ -4,10 +4,15 @@
     :onSignOut="handleSignOut"
     />
   
-    <div> 
+    <div class="demo">
       <p> {{  }}</p>
+      <button @click.prevent="handleAddWorkout">add workout</button>
+      <button @click.prevent="handleRemoveWorkout">remove workout</button>
+      <button @click.prevent="handleAddLog">add log</button>
+      <button @click.prevent="handleRemoveLog">remove log</button>
+      <button @click.prevent="handleUpdateLog">update log</button>  
     </div>
-  
+
     <RouterView 
       :user="user"
       :onUser="handleUser">
@@ -125,12 +130,13 @@ export default {
       console.log('MUSCLE MOVEMENTS', this.muscleMovements);
     },
 
-    handleAddWorkout(workout) {
-      addWorkout(workout)
-        .then(saved => {
-          this.goals.push(saved);
-          this.$router.push('/goals/list');
-        });
+    handleAddWorkout() {
+      console.log('receiving call');
+      // addWorkout(workout)
+      //   .then(saved => {
+      //     this.goals.push(saved);
+      //     this.$router.push('/goals/list');
+      //   });
     },
     handleRemoveWorkout() {
       if(!confirm(`Are you sure you want to remove the workout on ${this.workout.date}?`)) {
