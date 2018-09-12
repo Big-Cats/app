@@ -143,13 +143,14 @@ export default {
     
 
     handleAddWorkout() {
-      addWorkout();
-      this.workoutSet = getWorkouts();
+      addWorkout()
+        .then((response) => {
+          console.log('getback', response);
+        })
+        .then(() => {
+          this.workoutSet = getWorkouts();
+        });
       console.log('workout added');
-      // .then(saved => {
-      //   this.goals.push(saved);
-      //   this.$router.push('/goals/list');
-      // });
     },
     handleRemoveWorkout() {
       if(!confirm(`Are you sure you want to remove the workout on ${this.workout.date}?`)) {
@@ -164,11 +165,16 @@ export default {
     handleAddLog(log) {
       addLog(log)
         .then(() => {
-          // this.goals.push(saved);
-          // this.$router.push('/goals/list');
-        
-          console.log('log added');
-
+          getWorkouts()
+            .then(response => {
+              this.workoutSet = response;
+              console.log('WORKOUT SET', this.workoutSet);
+              this.loading = false;
+            })
+            .catch(err => {
+              this.error = err.message;
+              this.loading = false;
+            });
         });
     },
     handleRemoveLog() {
