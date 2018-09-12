@@ -1,21 +1,19 @@
 <template>
   <div>
-    <h3>Exercise Counter</h3>
+    <h3>{{ exercise.movement.toUpperCase() }}</h3>
     <div 
       class="set"
-      v-for="(exercise,key) in exercises" 
-      :key="exercise"
     >
-      <p>{{ exercise.movement }}</p>
       <button
-        v-for="(set, index) in exercise[key]"
+        v-for="(set, index) in exercise.sets"
         :key="index"
         @click="markAsCompleted(i)" 
         class="set__checkbox" 
         :class="{set__checkbox__completed: set.completed}"
       > 
-        {{ exercise.attempted }}
+        {{ set.attempted }}
       </button>
+
     </div>
   </div>
 </template>
@@ -23,7 +21,7 @@
 <script>
 export default {
   props: {
-    exercises: Object,
+    exercise: Object,
   },
   data() {
     return {
@@ -32,7 +30,6 @@ export default {
       }
     };
   },
-
   methods: {
     markAsCompleted(index) {
       console.log('i will mark a log as completed', 'index is', index);

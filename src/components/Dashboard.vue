@@ -11,7 +11,7 @@
               :movements="movements"
               :muscleMovements="muscleMovements"
               :selectedMuscle="selectedMuscle"
-              :exercises="workoutSet[index].exercises"
+              :exercises="workout.exercises"
             />        
           </ul>
         </div>
