@@ -30,7 +30,7 @@ export default {
 label {
   display: block;
   font-weight: bolder;
-  margin-top: 10px;
+  margin: .4em;
 }
 
 
