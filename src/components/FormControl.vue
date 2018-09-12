@@ -19,12 +19,14 @@ export default {
 
 </script>
 
-<style scoped>
+<style>
 
 .form-control {
   width:fit-content;
   text-align: left;
-  border: 1px solid black;
+  /* border: 1px solid black; */
+  
+
 }
 
 label {

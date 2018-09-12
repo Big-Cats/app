@@ -2,7 +2,7 @@
   <form class="add-exercise">
     <h3>Add Exercise</h3>
     <FormControl label="Select" class="exercise-selector">
-        <select v-model="selectedMuscle" v-on:change="handleChange">
+        <select v-model="selectedMuscle" v-on:change="handleChange" class="pulldown">
           <option v-for="muscle in Object.keys(muscleMovements)"
             :muscle="muscle"
             :key="muscle.id"
@@ -11,7 +11,7 @@
         </select>
       </FormControl>
     <FormControl label="New Movement" class="exercise-selector">
-      <select>
+      <select class="pulldown">
         <option v-for="movement in muscleMovements[this.selectedMuscle]"
           :movement="movement"
           :key="movement.id"
@@ -51,15 +51,22 @@ export default {
 <style>
 .add-exercise {
   display: flex;
-  border: 1px solid black;
-  /* border-radius: 10%; */
+  border: 2px solid #C97560;
+  background-color: #F7EDEA;
   border-radius: .5em;
   padding: .5em 0 1em 1em;
+
 }
 
 .exercise-selector {
   display: inline-block;
   margin: auto;
-  
+  padding: 0 .2em;
+  border-radius: .3em;
+  border: 1px solid #C97560;
+}
+
+.pulldown {
+  border-radius: .2em;
 }
 </style>
