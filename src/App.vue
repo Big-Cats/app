@@ -144,6 +144,7 @@ export default {
 
     handleAddWorkout() {
       addWorkout();
+      this.workoutSet = getWorkouts();
       console.log('workout added');
       // .then(saved => {
       //   this.goals.push(saved);
@@ -162,9 +163,12 @@ export default {
 
     handleAddLog(log) {
       addLog(log)
-        .then(saved => {
-          this.goals.push(saved);
-          this.$router.push('/goals/list');
+        .then(() => {
+          // this.goals.push(saved);
+          // this.$router.push('/goals/list');
+        
+          console.log('log added');
+
         });
     },
     handleRemoveLog() {
