@@ -1,15 +1,5 @@
 <template>
-  <form class="add-exercise">
 
-    <FormControl label="New Movement" class="exercise-selector">
-      <select class="pulldown">
-        <option v-for="movement in muscleMovements[this.selectedMuscle]"
-          :movement="movement"
-          :key="movement.id"
-          :name="movement.name">{{ movement.name }}
-        </option>
-      </select>
-    </FormControl>
   <form class="add-exercise">
     <FormControl label="Add Exercise" >
 
