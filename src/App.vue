@@ -156,7 +156,16 @@ export default {
           console.log('getback', response);
         })
         .then(() => {
-          this.workoutSet = getWorkouts();
+          getWorkouts()
+            .then(response => {
+              this.workoutSet = response;
+              console.log('WORKOUT SET', this.workoutSet);
+              this.loading = false;
+            })
+            .catch(err => {
+              this.error = err.message;
+              this.loading = false;
+            });
         });
       console.log('workout added');
     },
