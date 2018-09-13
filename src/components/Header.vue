@@ -10,6 +10,7 @@
       <RouterLink class="nav" to="/">Home</RouterLink>
       <RouterLink class="nav" to="/about">About</RouterLink>
       <RouterLink class="nav" v-if="user" to="/dashboard">Dashboard</RouterLink>
+      <RouterLink class="nav" v-if="user" to="/analytics">Analytics</RouterLink>
     </nav>
     
     <div class="user-controls">
