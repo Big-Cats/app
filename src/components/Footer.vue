@@ -21,5 +21,12 @@ footer {
   /* background-color: var(--gymred); */
   color: black;
 }
+@media screen and (max-width: 600px) {
+  footer {
+    
+    padding-bottom: 2em;
+
+  }
+}
 
 </style>

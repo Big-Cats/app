@@ -60,18 +60,12 @@ export default {
 ul {
   list-style-type: none;
   display: grid;
+  padding: 1em;
   grid-gap: 1.5em;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  border: 1px solid black;
-  
-}
-
-.workout-cards {
-  border: 1px solid black;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));  
 }
 
 .workout-card {
-  
   border-radius: 1em;
   border: 2px solid #C97560;
   padding: 1em;
