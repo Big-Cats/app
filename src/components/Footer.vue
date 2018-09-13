@@ -18,7 +18,7 @@ img {
   padding-top: 10px;
 }
 footer {
-  /* background-color: var(--gymred); */
+  background-color: var(--gymred);
   color: black;
 }
 
