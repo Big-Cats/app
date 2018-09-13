@@ -41,7 +41,7 @@ export default {
         ? this.programFinder(this.selectedProgram).id 
         : null;
       console.log('Id is ', selectedId);
-      console.log('going to api', JSON.stringify({ id: selectedId }) )
+      console.log('going to api', JSON.stringify({ id: selectedId }));
       this.handleAddWorkout({ id: selectedId });
     },
     programFinder(programId) {
