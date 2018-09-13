@@ -1,23 +1,22 @@
 <template>
   <div class="add-workout">
     <h3>Add a New Workout</h3>
-    <FormControl label="New Workout">
-      <select v-model="selected">
-        <option disabled value=''>Choose A Workout</option>
-        <option v-for="program in programSet"
-              :program="program"
-              :key="program.id"
-              :name="program.name"
-              :selected="selected"
-              >
-              {{ program.description }}
-        </option>
-      </select>
-    </FormControl>
-    <!-- <p>{{ program.selected }}</p> -->
-    <FormControl v-model="selected">
-      <button type="submit" @click.prevent="onAddWorkout">Begin Workout</button>
-    </FormControl>    
+    <form>
+      <FormControl label="New Workout">
+        <select v-model="selectedProgram">
+          <option value=''>No Template</option>
+          <option v-for="program in programSet"
+                :program="program"
+                :key="program.id + program.name"
+                :name="program.name"
+                :value="program.id"
+                >
+                {{ program.name }}
+          </option>
+        </select>
+      </FormControl>
+      <button type="submit" @click.prevent="onWorkoutAdd">Begin Workout</button>
+    </form>
   </div>
 </template>
 
@@ -25,25 +24,40 @@
 import FormControl from './FormControl.vue';
 export default {
   props: {
-    onAddWorkout: Function,
+    handleAddWorkout: Function,
     programSet: Array,
-    selected: Object
   },
   components: {
     FormControl
   },
+  data() {
+    return {
+      selectedProgram: ''
+    };
+  },
   methods: {
     onWorkoutAdd() {
-      console.log('I will add the new exercise');
-      console.log(Object.keys(this.muscleMovements));
-      // handleAddWorkout();
+      const selectedId = this.selectedProgram 
+        ? this.programFinder(this.selectedProgram).id 
+        : null;
+      console.log('Id is ', selectedId);
+      console.log('going to api', JSON.stringify({ id: selectedId }) )
+      this.handleAddWorkout({ id: selectedId });
+    },
+    programFinder(programId) {
+      return this.programSet.find((item) => { return item.id = programId; });
     }
   }
 
 };
 </script>
 
-<style>
+<style scoped>
+
+.form-control {
+  text-align: center;
+  margin: 0 auto;
+}
 
 .add-workout {
   border: 1px solid black;

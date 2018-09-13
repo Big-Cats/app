@@ -111,10 +111,11 @@ export function getWorkouts() {
   })
     .then(responseHandler);
 }
-export function addWorkout() {
+export function addWorkout(programId) {
   return fetch(WORKOUTS_URL, {
     method: 'POST',
     headers: getHeaders(),
+    body: JSON.stringify(programId)
   })
     .then(responseHandler);
 }

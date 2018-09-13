@@ -56,8 +56,8 @@ export default {
       // this.setList.forEach(item => idArray.push(item.logId));
       // this.handleRemoveExercise(idArray);
 
-      console.log('stop clicking me');
-      this.handleRemoveWorkout(this.workout.id, this.workout.date);
+      // console.log(this.workout);
+      this.handleRemoveWorkout(this.workout);
     }
   }
 
