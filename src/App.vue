@@ -161,7 +161,13 @@ export default {
       console.log('workout added');
     },
     handleRemoveWorkout(){
-      console.log('App removing workout', this.workoutSet[0].id);
+      console.log('App removing workout', this.workoutSet[x].id);
+      console.log(this);
+
+      // .then(() => {
+
+      // })
+
       // if(!confirm(`Are you sure you want to remove the workout on ${this.workout.date}?`)) {
       //   return;
       // }

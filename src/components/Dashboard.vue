@@ -20,7 +20,6 @@
               :handleAddLog="handleAddLog"
               :handleAddWorkout="handleAddWorkout"
               :handleRemoveWorkout="handleRemoveWorkout"
-
             />        
           </ul>
         </div>

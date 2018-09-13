@@ -39,9 +39,10 @@ export default {
   },
   methods: {
     onRemoveWorkout() {
-      console.log('WorkoutCard removing workout ' + this.workout.id);
+      const id = this.workout.id;
+      console.log('WorkoutCard removing workout ' + id);
       
-      this.handleRemoveWorkout(this.workout.id);    
+      this.handleRemoveWorkout(id);    
     }
   }
 };
