@@ -24,6 +24,7 @@
       :handleAddLog="handleAddLog"
       :handleAddWorkout="handleAddWorkout"
       :handleRemoveExercise="handleRemoveExercise"
+      :handleUpdateLog="handleUpdateLog"
     >
     </RouterView> 
 
@@ -160,10 +161,10 @@ export default {
       if(!confirm(`Are you sure you want to remove the workout on ${this.workout.date}?`)) {
         return;
       }
-      return removeWorkout(this.workout.id)
-        .then(() => {
-          this.$router.push('/neighborhoods');
-        });
+      return removeWorkout(this.workout.id);
+      // .then(() => {
+      //   this.$router.push('/neighborhoods');
+      // });
     },
     handleRemoveExercise(idArray) {
       if(!confirm('Are you sure you want to remove this exercise?')) {
@@ -206,7 +207,7 @@ export default {
         });
     },
     handleRemoveLog(id) {
-      if(!confirm(`Are you sure you want to remove this log?`)) {
+      if(!confirm('Are you sure you want to remove this log?')) {
         return;
       }
 
@@ -217,13 +218,32 @@ export default {
       //   this.$router.push('/neighborhoods');
       // });
     },
-    handleUpdateLog(toUpdate) {
-      return updateLog(toUpdate)
-        .then(updated => {
-          this.log = updated;
-          this.editing = false;
+    handleUpdateLog(log) {
+      return updateLog(log)
+        .then(() => {
+          getWorkouts()
+            .then(response => {
+              this.workoutSet = response;
+              console.log('WORKOUT SET', this.workoutSet);
+              this.loading = false;
+            })
+            .catch(err => {
+              this.error = err.message;
+              this.loading = false;
+            });
         });
+      // .then(updated => {
+      //   this.log = updated;
+      //   this.editing = false;
+      // });
     },
+    // handleUpdateLog(toUpdate) {
+    //   return updateLog(toUpdate)
+    //     .then(updated => {
+    //       this.log = updated;
+    //       this.editing = false;
+    //     });
+    // },
     
     
     // handleMuscleSelect() {

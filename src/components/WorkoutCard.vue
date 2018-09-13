@@ -7,6 +7,7 @@
         :workout="workout"
         :workoutIndex="index"
         :handleRemoveExercise="handleRemoveExercise"
+        :handleUpdateLog="handleUpdateLog"
       > 
       </ExerciseCounter>
       <AddExercise 
@@ -31,7 +32,9 @@ export default {
     exercises: Array,
     workout: Object,
     handleAddLog: Function,
-    handleRemoveExercise: Function
+    handleRemoveExercise: Function,
+    handleUpdateLog: Function
+
   },
   components: {
     AddExercise,
