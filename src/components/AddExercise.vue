@@ -80,6 +80,7 @@ export default {
     movements: Array,
     muscles: Array,
     muscleMovements: Object,
+    selectedMuscle: String,
     workout: Object,
     handleAddLog: Function
   },
