@@ -123,6 +123,7 @@ export default {
 <style>
 .add-exercise {
   display: flex;
+  justify-content: space-around;
   border: 2px solid #C97560;
   background-color: #F7EDEA;
   border-radius: .5em;

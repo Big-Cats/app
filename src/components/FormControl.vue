@@ -22,7 +22,7 @@ export default {
 <style>
 
 .form-control {
-  width:fit-content;
+  /* width:fit-content; */
   text-align: left;
   /* border: 1px solid black; */
 }
