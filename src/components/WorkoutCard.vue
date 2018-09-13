@@ -1,7 +1,9 @@
 <template>
-    <li>
-      <p class="date">{{ workoutDate.toLocaleString() }}</p>
-      <button class="remove-workout" @click="onWorkoutRemove">x</button>
+    <li class="workout-card">
+      <div class="card-header">
+        <p class="date">{{ workoutDate.toLocaleString() }}</p>
+        <button class="remove-workout" @click="onWorkoutRemove">x</button>
+      </div>
       <ExerciseCounter
         v-for="(exercise, index) in exercises"
         :key="index"
@@ -70,16 +72,16 @@ export default {
 li {
   border: 1px solid black;
 }
-.date {
-  float: left;
+/* .date {
+  width: 100%;
+} */
+.card-header {
+  display: flex;
+  justify-content: space-between;
 }
-
 .remove-workout {
   background-color: black;
   color: white;
-  float: right;
-  margin-left: 30px;
-  padding: 5px;
   width: 30px;
   height: 30px;
 }

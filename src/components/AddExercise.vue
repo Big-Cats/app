@@ -63,7 +63,7 @@
         </FormControl>
 
         <FormControl label="Weight" class="exercise-selector">
-          <input v-model="weight" required/>
+          <input id="weight" v-model="weight" required/>
         </FormControl>
 
 
@@ -131,7 +131,7 @@ export default {
 
 .exercise-selector {
   display: inline-block;
-  margin: auto;
+  margin:  .2em;
   padding: 0 .2em;
   border-radius: .3em;
   border: 1px solid #C97560;
@@ -139,6 +139,10 @@ export default {
 
 .pulldown {
   border-radius: .2em;
+  width: 8em;
+}
+#weight {
+  width: 4em;
 }
 
 </style>

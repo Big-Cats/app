@@ -71,6 +71,7 @@ ul {
 }
 
 .workout-card {
+  
   border-radius: 1em;
   border: 2px solid #C97560;
   padding: 1em;
