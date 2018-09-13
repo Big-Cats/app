@@ -1,19 +1,17 @@
 <template>
   <header class="header">
-    <RouterLink to="/" class="branding">
-      <img class="logo" alt="logo" src="../assets/icon.png">
+    <RouterLink to="/" class="branding"></RouterLink>
+    <div class="center">
       <h1>Maximum Intensity</h1>
-    </RouterLink>
-    <div class="navbar">  
       <nav>
         <RouterLink class="nav" to="/">Home</RouterLink>
         <RouterLink class="nav" to="/about">About</RouterLink>
         <RouterLink class="nav" v-if="user" to="/dashboard">Dashboard</RouterLink>
-        <p class="nav current-user" v-if="user">User: {{ user.email }}</p>
         <RouterLink class="nav" v-if="!user" to="/auth">Sign In</RouterLink>
         <a class="nav" v-if="user" href="/" @click.prevent="onSignOut">Sign Out</a>
       </nav>
     </div>
+    <p id="current-user" v-if="user">User: {{ user.email }}</p>
   </header>
 </template>
 
@@ -29,23 +27,34 @@ export default {
 
 <style scoped>
 
-.branding {
+.center {
   display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+
+}
+
+.branding {
+  display: inline-block;
   align-items: center;
   text-decoration: none;
+  background: url(../assets/icon.png);
+  background-size: contain;
+  background-repeat:  no-repeat;
 }
 
-.branding a{
+.branding a {
   text-decoration: none;
+
 }
 
-.current-user {
+#current-user {
   font-weight: bolder;
-  display: inline-block;
-  min-width: 140px;
+  text-align: center;
+  display: block;
+  height: 25px;
   font-size: 22px;
-  padding: 5px;
-  margin: 10px;
+  padding: 10px;
   border: 1px solid black;
   text-decoration: none;
   color: white;
@@ -53,13 +62,16 @@ export default {
   box-shadow: 0.5px 0.5px 0.5px black;
   background-color: rgba(65,214,195,0);
   border: 4px solid #ffd90000;
+  margin: 10px 0px auto auto;
+  float: right;
 }
 
-img.logo {
-  width: 100px;
-  height: 100px;
   
+
+a, p {
+  display: inline-block;
 }
+
 .nav {
   width: 140px;
   font-size: 22px;
@@ -71,6 +83,14 @@ img.logo {
   box-shadow: 0.5px 0.5px 0.5px black;
   background-color: rgba(65,214,195,0);
   border: 4px solid #ffd90000;
+}
+
+
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding-bottom: 20px;
 }
 
 a.nav:hover {
@@ -89,16 +109,14 @@ h1 {
 }
 
 header {
-  display: block;
-  justify-content: space-between;
+  display: grid;
+
+ 
+  grid-template-columns: 25% 50% 25%;
+
+  justify-content: flex-start;
   box-shadow: 3px 2px 2px black;
   background: var(--gymred);
-}
-
-.navbar {
-  display: flex;
-  justify-content: space-around;
-  padding-bottom: 20px;
 }
 
 @media screen and (max-width: 600px) {
@@ -107,7 +125,7 @@ header {
     flex-direction:column;
     width: 100%;
     }
-    .navbar {
+    nav {
     background-color: #333;
     overflow: hidden;
     position: fixed;
@@ -117,12 +135,13 @@ header {
     padding-top: .5em;
     padding-bottom: .5em;
     }
+    
     .nav {
       border: 0px;
       border-radius: 0;
       margin: auto;
     }
-    .current-user {
+    #current-user {
       display: none;
     }
 }

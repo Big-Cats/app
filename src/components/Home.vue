@@ -60,6 +60,7 @@ h2 {
   background-color: rgba(0, 0, 0, 0.4);
 }
 
+
 p.center {
   text-align: center;
 }
@@ -75,6 +76,15 @@ p {
 img {
   width: 100%;
 }
+
+@media screen and (max-width: 600px) {
+  
+  .call-to-action {
+    font-size: 48px;
+    margin: auto;
+  }
+}
+
 
 @media screen and (max-width: 480px) {
 
