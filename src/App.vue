@@ -4,15 +4,6 @@
       :user="user"
       :onSignOut="handleSignOut"
     />
-  
-    <div class="demo">
-      <button @click.prevent="handleAddWorkout">add workout</button>
-      <button @click.prevent="handleRemoveWorkout">remove workout</button>
-      <button @click.prevent="handleAddLog">add log</button>
-      <button @click.prevent="handleRemoveLog">remove log</button>
-      <button @click.prevent="handleUpdateLog">update log</button>  
-    </div>
-
     <RouterView 
       :workoutSet="workoutSet"
       :programSet="programSet"

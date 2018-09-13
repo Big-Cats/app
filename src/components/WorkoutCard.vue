@@ -4,6 +4,13 @@
         <p class="date">{{ workoutDate.toLocaleString() }}</p>
         <button class="remove-workout" @click="onWorkoutRemove">x</button>
       </div>
+      <AddExercise 
+        :movements="movements"
+        :muscles="muscles"
+        :workout="workout"
+        :muscleMovements="muscleMovements"
+        :handleAddLog="handleAddLog"
+      />
       <ExerciseCounter
         v-for="(exercise, index) in exercises"
         :key="index"
@@ -14,13 +21,6 @@
         :handleUpdateLog="handleUpdateLog"
       > 
       </ExerciseCounter>
-      <AddExercise 
-        :movements="movements"
-        :muscles="muscles"
-        :workout="workout"
-        :muscleMovements="muscleMovements"
-        :handleAddLog="handleAddLog"
-      />
     </li>
 </template>
 
