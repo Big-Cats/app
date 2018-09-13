@@ -24,6 +24,7 @@
       :onUser="handleUser"
       :handleAddLog="handleAddLog"
       :handleAddWorkout="handleAddWorkout"
+      :handleRemoveWorkout="handleRemoveWorkout"
     >
     </RouterView> 
 
@@ -140,10 +141,6 @@ export default {
       
 
     },
-    
-
-
-
     handleAddWorkout() {
       addWorkout()
         .then((response) => {
@@ -163,14 +160,15 @@ export default {
         });
       console.log('workout added');
     },
-    handleRemoveWorkout() {
-      if(!confirm(`Are you sure you want to remove the workout on ${this.workout.date}?`)) {
-        return;
-      }
-      return removeWorkout(this.workout.id)
-        .then(() => {
-          this.$router.push('/neighborhoods');
-        });
+    handleRemoveWorkout(){
+      console.log('App removing workout', this.workoutSet[0].id);
+      // if(!confirm(`Are you sure you want to remove the workout on ${this.workout.date}?`)) {
+      //   return;
+      // }
+      // return removeWorkout(this.workout.id)
+      //   .then(() => {
+      //     // this.$router.push('/neighborhoods');
+      //   });
     },
 
     handleAddLog(log) {

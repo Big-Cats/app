@@ -19,6 +19,7 @@
               :exercises="workout.exercises"
               :handleAddLog="handleAddLog"
               :handleAddWorkout="handleAddWorkout"
+              :handleRemoveWorkout="handleRemoveWorkout"
 
             />        
           </ul>
@@ -39,7 +40,8 @@ export default {
     muscleMovements: Object,
     selectedMuscle: String,
     handleAddLog: Function,
-    handleAddWorkout: Function
+    handleAddWorkout: Function,
+    handleRemoveWorkout: Function
   },
   created() {
 
