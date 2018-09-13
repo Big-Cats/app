@@ -1,17 +1,12 @@
 <template>
   <main>
-    <h2>Making Fitness Goals Achieveable Since 2018</h2>
-    <div>
-      <p>
-        Here at TigerFit, we think goal setting matters. We want to help people achieve what they desire!
-      </p>
-      <p class="center">
-        <img src="../assets/bacon.gif" />
-      </p>
-    </div>
-    <p class="center" v-if="!user">
-      Click <router-link to="/auth">here</router-link> to sign in!
-    </p>
+    <h2 class="center" v-if="!user">
+      <router-link class="call-to-action" to="/auth">Get Started</router-link>
+    </h2>
+    <h2 class="center" v-if="user">
+      <router-link class="call-to-action" to="/dashboard">Get After It</router-link>
+    </h2>
+
   </main>
 </template>
 
@@ -38,16 +33,31 @@ export default {
 </script>
 
 <style scoped>
-/*
-div {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 
+main {
+  background: url(../assets/background.jpg);
+  background-size: cover;
 }
-*/
 
 h2 {
+  margin-top: 300px;
   font-size: 36px;
+  background: rgba(0, 0, 0, 0);
+}
+
+.call-to-action {
+  text-decoration: none;
+  background-color: rgba(0, 0, 0, 0);
+  color: var(--gymred);
+  text-shadow: 2px 2px black;
+  font-size: 72px;
+  border: 5px solid var(--gymred);
+  border-radius: 20px 20px;
+  padding: 8px;
+}
+
+.call-to-action:hover {
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 p.center {
