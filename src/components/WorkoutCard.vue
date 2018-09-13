@@ -4,6 +4,9 @@
         v-for="(exercise, index) in exercises"
         :key="index"
         :exercise="exercise"
+        :workout="workout"
+        :workoutIndex="index"
+        :handleRemoveExercise="handleRemoveExercise"
       > 
       </ExerciseCounter>
       <AddExercise 
@@ -11,7 +14,6 @@
         :muscles="muscles"
         :workout="workout"
         :muscleMovements="muscleMovements"
-        :selectedMuscle="selectedMuscle"
         :handleAddLog="handleAddLog"
       />
     </li>
@@ -26,10 +28,10 @@ export default {
     movements: Array,
     muscles: Array,
     muscleMovements: Object,
-    selectedMuscle: String,
     exercises: Array,
     workout: Object,
-    handleAddLog: Function
+    handleAddLog: Function,
+    handleRemoveExercise: Function
   },
   components: {
     AddExercise,

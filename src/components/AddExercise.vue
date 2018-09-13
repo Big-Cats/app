@@ -80,7 +80,6 @@ export default {
     movements: Array,
     muscles: Array,
     muscleMovements: Object,
-    selectedMuscle: String,
     workout: Object,
     handleAddLog: Function
   },
@@ -101,12 +100,6 @@ export default {
   methods: {
 
     onExerciseAdd() {
-      // console.log(this.selectedMuscle, this.selectedMovement, this.sets, this.reps, this.weight);
-    // need workout_id, movement_id, attempted, completed, weight
-
-      // const x = 
-      // console.log(x);
-
       const log = {
         workout_id: this.workout.id,
         movement_id: this.movements.find(item => item.name === this.selectedMovement).id,

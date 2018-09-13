@@ -15,10 +15,10 @@
               :movements="movements"
               :muscles="muscles"
               :muscleMovements="muscleMovements"
-              :selectedMuscle="selectedMuscle"
               :exercises="workout.exercises"
               :handleAddLog="handleAddLog"
               :handleAddWorkout="handleAddWorkout"
+              :handleRemoveExercise="handleRemoveExercise"
 
             />        
           </ul>
@@ -37,9 +37,10 @@ export default {
     movements: Array,
     muscles: Array,
     muscleMovements: Object,
-    selectedMuscle: String,
     handleAddLog: Function,
-    handleAddWorkout: Function
+    handleAddWorkout: Function,
+    handleRemoveExercise: Function
+
   },
   created() {
 

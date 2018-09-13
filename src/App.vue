@@ -19,11 +19,11 @@
       :movements="movements"
       :muscles="muscles"
       :muscleMovements="muscleMovements"
-      :selectedMuscle="selectedMuscle"
       :user="user"
       :onUser="handleUser"
       :handleAddLog="handleAddLog"
       :handleAddWorkout="handleAddWorkout"
+      :handleRemoveExercise="handleRemoveExercise"
     >
     </RouterView> 
 
@@ -56,8 +56,6 @@ export default {
       movements: [],
       muscles: [],
       muscleMovements: {},
-
-      selectedMuscle: 'abdominals'
     };
   },
   created() {
@@ -137,13 +135,8 @@ export default {
           this.error = err.message;
           this.loading = false;
         });
-      
-
     },
     
-
-
-
     handleAddWorkout() {
       addWorkout()
         .then((response) => {
@@ -172,6 +165,30 @@ export default {
           this.$router.push('/neighborhoods');
         });
     },
+    handleRemoveExercise(idArray) {
+      if(!confirm('Are you sure you want to remove this exercise?')) {
+        return;
+      }
+
+      const promiseArray = [];
+      idArray.forEach((item) => {
+        promiseArray.push(removeLog({ id: item }));
+      });
+
+      Promise.all(promiseArray)
+        .then(() => {
+          getWorkouts()
+            .then(response => {
+              this.workoutSet = response;
+              console.log('WORKOUT SET', this.workoutSet);
+              this.loading = false;
+            })
+            .catch(err => {
+              this.error = err.message;
+              this.loading = false;
+            });
+        });
+    },
 
     handleAddLog(log) {
       addLog(log)
@@ -188,14 +205,17 @@ export default {
             });
         });
     },
-    handleRemoveLog() {
-      if(!confirm(`Are you sure you want to remove this ${this.log.movement} log?`)) {
+    handleRemoveLog(id) {
+      if(!confirm(`Are you sure you want to remove this log?`)) {
         return;
       }
-      return removeLog(this.log.id)
-        .then(() => {
-          this.$router.push('/neighborhoods');
-        });
+
+      console.log('removing log with id', id);
+
+      return removeLog(id);
+      // .then(() => {
+      //   this.$router.push('/neighborhoods');
+      // });
     },
     handleUpdateLog(toUpdate) {
       return updateLog(toUpdate)
