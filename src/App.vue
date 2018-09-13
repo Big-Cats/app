@@ -158,21 +158,12 @@ export default {
         });
       console.log('workout added');
     },
-    handleRemoveWorkout(workoutId, workoutDate) {
-      if(!confirm(`Are you sure you want to remove the workout on ${workoutDate}?`)) {
+    handleRemoveWorkout(workout) {
+      if(!confirm(`Are you sure you want to remove the workout on ${workout.date}?`)) {
         return;
       }
 
-
-
-      const promiseArray = [];
-      promiseArray.push(removeWorkout({ id: workoutId }));
-
-      // idArray.forEach((item) => {
-      //   promiseArray.push(removeLog({ id: item }));
-      // });
-
-      Promise.all(promiseArray)
+      removeWorkout({ id: workout.id })
         .then(() => {
           getWorkouts()
             .then(response => {
