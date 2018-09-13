@@ -54,21 +54,19 @@ export default {
   background-color: rgba(65,214,195,0);
   border: 4px solid #ffd90000;
 }
+
 img.logo {
   width: 100px;
   height: 100px;
   
 }
 .nav {
-  /* display: flex; */
   width: 140px;
   font-size: 22px;
   padding: 5px;
-  margin: 10px;
-  border: 1px solid black;
+  margin: 10px;  
   text-decoration: none;
   color: white;
-  /* text-shadow: 1px 1px white; */
   border-radius: 5px;
   box-shadow: 0.5px 0.5px 0.5px black;
   background-color: rgba(65,214,195,0);
@@ -81,7 +79,6 @@ a.nav:hover {
   border: 2px solid #CCDDD3
 }
 
-
 h1 {
   font-size: 48px;
   font-weight: normal;
@@ -89,15 +86,11 @@ h1 {
   margin: auto;
   text-transform: uppercase;
   color: black;
-  /* text-shadow: 2px 2px white; */
 }
-
-
 
 header {
   display: block;
   justify-content: space-between;
-  
   box-shadow: 3px 2px 2px black;
   background: var(--gymred);
 }
@@ -105,21 +98,15 @@ header {
 .navbar {
   display: flex;
   justify-content: space-around;
+  padding-bottom: 20px;
 }
 
-/* header:hover {
-  background: #fff8ed;
-} */
-
-
 @media screen and (max-width: 600px) {
-
     header {
     display: flex;
     flex-direction:column;
     width: 100%;
     }
-
     .navbar {
     background-color: #333;
     overflow: hidden;
@@ -127,15 +114,17 @@ header {
     bottom: 0;
     width: 100%;
     z-index: 100;
+    padding-top: .5em;
+    padding-bottom: .5em;
     }
     .nav {
       border: 0px;
+      border-radius: 0;
       margin: auto;
     }
     .current-user {
       display: none;
-      
-}
+    }
 }
 
 </style>

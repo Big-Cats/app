@@ -22,11 +22,10 @@ footer {
   color: black;
 }
 @media screen and (max-width: 600px) {
-  footer {
-    
+  footer {   
     padding-bottom: 2em;
-
   }
+  
 }
 
 </style>
