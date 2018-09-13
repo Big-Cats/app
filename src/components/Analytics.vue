@@ -4,6 +4,9 @@
 
 <script>
 export default {
+  props: {
+    workoutSets: Array
+  }
 
 };
 </script>
