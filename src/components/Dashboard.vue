@@ -11,6 +11,7 @@
             <WorkoutCard class="workout-card"
               v-for="(workout, index) in workoutSet"
               :key="index"
+              :workout="workout"
               :movements="movements"
               :muscles="muscles"
               :muscleMovements="muscleMovements"
