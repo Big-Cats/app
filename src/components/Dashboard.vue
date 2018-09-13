@@ -18,6 +18,7 @@
               :exercises="workout.exercises"
               :handleAddLog="handleAddLog"
               :handleAddWorkout="handleAddWorkout"
+              :handleRemoveWorkout="handleRemoveWorkout"
               :handleRemoveExercise="handleRemoveExercise"
               :handleUpdateLog="handleUpdateLog"
             />        
@@ -41,8 +42,8 @@ export default {
     handleAddWorkout: Function,
     handleRemoveExercise: Function,
     handleRemoveLog: Function,
-    handleUpdateLog: Function
-
+    handleUpdateLog: Function,
+    handleRemoveWorkout: Function
   },
   created() {
 

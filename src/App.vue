@@ -23,6 +23,7 @@
       :onUser="handleUser"
       :handleAddLog="handleAddLog"
       :handleAddWorkout="handleAddWorkout"
+      :handleRemoveWorkout="handleRemoveWorkout"
       :handleRemoveExercise="handleRemoveExercise"
       :handleUpdateLog="handleUpdateLog"
     >
@@ -157,14 +158,33 @@ export default {
         });
       console.log('workout added');
     },
-    handleRemoveWorkout() {
-      if(!confirm(`Are you sure you want to remove the workout on ${this.workout.date}?`)) {
+    handleRemoveWorkout(workoutId, workoutDate) {
+      if(!confirm(`Are you sure you want to remove the workout on ${workoutDate}?`)) {
         return;
       }
-      return removeWorkout(this.workout.id);
-      // .then(() => {
-      //   this.$router.push('/neighborhoods');
+
+
+
+      const promiseArray = [];
+      promiseArray.push(removeWorkout({ id: workoutId }));
+
+      // idArray.forEach((item) => {
+      //   promiseArray.push(removeLog({ id: item }));
       // });
+
+      Promise.all(promiseArray)
+        .then(() => {
+          getWorkouts()
+            .then(response => {
+              this.workoutSet = response;
+              console.log('WORKOUT SET', this.workoutSet);
+              this.loading = false;
+            })
+            .catch(err => {
+              this.error = err.message;
+              this.loading = false;
+            });
+        });
     },
     handleRemoveExercise(idArray) {
       if(!confirm('Are you sure you want to remove this exercise?')) {

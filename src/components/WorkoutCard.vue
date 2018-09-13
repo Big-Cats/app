@@ -35,7 +35,8 @@ export default {
     workout: Object,
     handleAddLog: Function,
     handleRemoveExercise: Function,
-    handleUpdateLog: Function
+    handleUpdateLog: Function,
+    handleRemoveWorkout: Function
 
   },
   components: {
@@ -45,6 +46,16 @@ export default {
   computed: {
     workoutDate() {
       return new Date(this.workout.date);
+    }
+  },
+  methods: {
+    onWorkoutRemove() {
+      // const idArray = [];
+      // this.setList.forEach(item => idArray.push(item.logId));
+      // this.handleRemoveExercise(idArray);
+
+      console.log('stop clicking me');
+      this.handleRemoveWorkout(this.workout.id, this.workout.date);
     }
   }
 
