@@ -16,7 +16,7 @@
     </FormControl>
     <!-- <p>{{ program.selected }}</p> -->
     <FormControl v-model="selected">
-      <button type="submit" @click.prevent="onAddWorkout">Begin Workout</button>
+      <button type="submit" @click.prevent="onWorkoutAdd">Begin Workout</button>
     </FormControl>    
   </div>
 </template>
@@ -25,7 +25,7 @@
 import FormControl from './FormControl.vue';
 export default {
   props: {
-    onAddWorkout: Function,
+    handleAddWorkout: Function,
     programSet: Array,
     selected: Object
   },
@@ -35,8 +35,9 @@ export default {
   methods: {
     onWorkoutAdd() {
       console.log('I will add the new exercise');
-      console.log(Object.keys(this.muscleMovements));
-      // handleAddWorkout();
+      if(!this.selected) {
+        this.handleAddWorkout();
+      }
     }
   }
 

@@ -3,7 +3,7 @@
         <h2>Your Workouts</h2>
         <AddWorkout
         :programSet="programSet"
-        :onAddWorkout="handleAddWorkout"
+        :handleAddWorkout="handleAddWorkout"
         />
         <div class="workout-cards">
           <h3>Workout List</h3>
