@@ -5,7 +5,8 @@
       :onSignOut="handleSignOut"
     />
 
-    <RouterView 
+    <RouterView
+      :updateCoreData="updateCoreData" 
       :workoutSet="workoutSet"
       :programSet="programSet"
       :movements="movements"

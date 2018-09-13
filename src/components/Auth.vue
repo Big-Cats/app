@@ -46,7 +46,8 @@ import FormControl from './FormControl';
 
 export default {
   props: {
-    onUser: Function
+    onUser: Function,
+    updateCoreData: Function
   },
   components: {
     FormControl
@@ -84,8 +85,9 @@ export default {
       action(this.credentials)
         .then(user => {
           this.onUser(user);
+          this.updateCoreData();
           console.log(user);
-          this.$router.push('/');
+          this.$router.push('/dashboard');
         })
         .catch(err => {
           this.error = err;
