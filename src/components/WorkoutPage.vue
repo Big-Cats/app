@@ -14,8 +14,8 @@
 </template>
 
 <script>
-import WorkoutDetail from './WorkoutDetail.vue';
-import AddWorkout from './AddWorkout.vue';
+import WorkoutDetail from "./WorkoutDetail.vue";
+import AddWorkout from "./AddWorkout.vue";
 
 export default {
   props: {
@@ -32,6 +32,7 @@ export default {
   },
   data() {
     return {
+      // workout: this.updateCoreDate.then(this.getWorkout(this.$route.params.id))
       workout: this.getWorkout(this.$route.params.id)
     };
   },
@@ -47,21 +48,25 @@ export default {
   },
   methods: {
     getWorkout(id) {
-      //make this run after getting workoutset via app routes      
+      //make this run after getting workoutset via app routes
+      // console.log(this.wrkout)
+      // console.log(
+      //   this.workoutSet.find(item => {
+      //     return item.id === id;
+      //   })
+      // );
+      // return this.workoutSet.find(item => item.id === id);
       return this.workoutSet[id];
     }
   }
-
 };
 </script>
 
 <style>
-
 @font-face {
-    font-family: BOMBARD;
-    src: url("../assets/fonts/BOMBARD.ttf") format("opentype");
+  font-family: BOMBARD;
+  src: url("../assets/fonts/BOMBARD.ttf") format("opentype");
 }
-
 
 .call-to-action {
   text-decoration: none;
@@ -78,9 +83,4 @@ main {
   background: url(../assets/background.jpg);
   background-size: cover;
 }
-
-
-
-
-
 </style>
