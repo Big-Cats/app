@@ -104,7 +104,7 @@ export default {
         workout_id: this.workout.id,
         movement_id: this.movements.find(item => item.name === this.selectedMovement).id,
         attempted: this.reps,
-        completed: 0,
+        completed: null,
         weight: this.weight
       };
       console.log('adding log...', log, 'for', this.sets, 'number of times');
