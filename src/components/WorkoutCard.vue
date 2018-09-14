@@ -19,8 +19,7 @@
         :workoutIndex="index"
         :handleRemoveExercise="handleRemoveExercise"
         :handleUpdateLog="handleUpdateLog"
-      > 
-      </ExerciseCounter>
+      /> 
     </li>
 </template>
 

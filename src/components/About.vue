@@ -27,11 +27,11 @@ main {
 }
 
 h2, p {
-  text-shadow: 3px 3px black;
+  text-shadow: 3px 3px 3px black;
 }
 
 h2 {
-  margin-top: 15%;
+  margin-top: 5%;
   font-size: 36px;
 }
 

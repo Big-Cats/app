@@ -29,12 +29,12 @@ export default {
       return this.workout.exercises[this.workoutIndex].sets;
     },
     bubbleVal() {
-      if(this.set.completed === 0) { return this.set.attempted; }
-      else if(this.set.completed === this.set.attempted) { return 0; }
-      else { return this.set.attempted - this.set.completed; }
+      if(this.set.completed === null) { return null; }
+      else if(this.set.completed === 0) { return 0; }
+      else { return this.set.completed; }
     },
     bubbleDark() {
-      if(this.set.completed === this.set.attempted){ return false;}
+      if(this.set.completed === null){ return false;}
       else {return true;}
     }
   },
@@ -48,11 +48,14 @@ export default {
  
       console.log('index', this.index);
       
-      if(this.set.completed < this.set.attempted){
-        this.set.completed++;
+      if(this.set.completed === null){
+        this.set.completed = this.set.attempted;
       }
-      else if(this.set.completed === this.set.attempted){
-        this.set.completed = 0;
+      else if(this.set.completed <= this.set.attempted && this.set.completed > 0){
+        this.set.completed--;
+      }
+      else if(this.set.completed === 0){
+        this.set.completed = null;
       }
 
       const log = {
@@ -79,8 +82,9 @@ export default {
   border: 0;
   border-radius: 50%;
   cursor: pointer;
-  height: 24px;
-  width: 24px;
+  height: 36px;
+  width: 36px;
+  margin: 0px 5px;
 }
 
 .set__checkbox__completed {

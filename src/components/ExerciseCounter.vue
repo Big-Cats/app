@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3>{{ exercise.movement.toUpperCase() }}</h3>
+    <h3>{{ exercise.movement.toUpperCase() }} - {{ exercise.sets.length }} x {{ exercise.sets[0].attempted }}</h3>
     <div class="set">
       <LogButton 
         v-for="(set, index) in exercise.sets" 
