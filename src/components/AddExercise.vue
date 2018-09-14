@@ -68,7 +68,7 @@
 
 
       </FormControl>
-      <button @click.prevent="onExerciseAdd">Add</button>
+      <button class="add-button" @click.prevent="onExerciseAdd">Add</button>
   </form>
 </template>
 
@@ -127,7 +127,7 @@ export default {
   border: 2px solid #C97560;
   background-color: #F7EDEA;
   border-radius: .5em;
-  padding: .5em 0 1em 1em;
+  padding: 1em;
 }
 
 .exercise-selector {
@@ -141,9 +141,14 @@ export default {
 .pulldown {
   border-radius: .2em;
   width: 8em;
+  
 }
 #weight {
   width: 4em;
+}
+.add-button {
+  background-color: black;
+  color: white;  
 }
 
 </style>

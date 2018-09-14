@@ -1,36 +1,41 @@
 <template>
-  <div>
-    <h2>{{ label }}</h2>
-    <button @click="type = isSignUp ? 'signIn' : 'signUp'">
-      {{
-        isSignUp
-          ? "Already a user? Click here to sign in"
-          : "New? Click here to sign up"
-      }}
-    </button>
+  <div id="auth-page">
+    <div class="call-to-action">
+      <h2>{{ label }}</h2>
+      <button 
+        class="add-button"
+        @click="type = isSignUp ? 'signIn' : 'signUp'">
+        {{
+          isSignUp
+            ? "Already a user? Click here to sign in"
+            : "New? Click here to sign up"
+        }}
+      </button>
+    </div>
     
     <div class="auth-form">
       <pre>{{ error }}</pre>
       <form @submit.prevent="handleSubmit">
 
-        <FormControl label="email">
+        <FormControl label="email" class="auth-text">
           <input class="email-input" v-model="credentials.email">
         </FormControl>
 
-        <FormControl label="password">
+        <FormControl label="password" class="auth-text">
           <input 
             :type="show ? 'text' : 'password'" 
             v-model="credentials.password">
           <button 
             @click="show = !show"
             type="button"
+            class="add-button"
           >
             {{ show ? 'Hide' : 'Show' }}
           </button>
         </FormControl>
 
         <FormControl>
-          <button type="submit">
+          <button type="submit" class="add-button">                  
             {{ label }}
           </button>
         </FormControl>
@@ -100,6 +105,25 @@ export default {
 
 <style scoped>
 
+#auth-page {
+  background: url(../assets/background.jpg);
+  background-size: cover;
+}
+.call-to-action {
+  text-decoration: none;
+  background-color: rgba(255, 255, 255, .3);
+  color: var(--gymred);
+  text-shadow: 2px 2px black;
+  font-size: 40px;
+  border: 5px solid var(--gymred);
+  border-radius: 20px 20px;
+  padding: 15px;
+  font-family: BOMBARD, "Avenir Next", sans-serif;
+  letter-spacing: 5px;
+  margin: 1em auto;
+  width: 40%;
+}
+
 .email-input {
   width: 220px;
 }
@@ -114,7 +138,24 @@ export default {
 }
 
 input {
-  margin: 0px auto;
+  margin: 0px auto; 
+}
+.auth-text {
+  color: white;
+  text-shadow: 3px 3px 3px black;
+}
+h2 {
+   font-family: BOMBARD, "Avenir Next", sans-serif;
+}
+@media screen and (max-width: 480px) {
+  .call-to-action {
+    font-size: 20px;
+    padding: .5em;
+  }
+  h2 {
+    font-family: BOMBARD, "Avenir Next", sans-serif;
+    margin: .5em;
+  }
 }
 
 

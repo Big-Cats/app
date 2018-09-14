@@ -49,13 +49,13 @@ main {
 h2 {
   margin-top: 300px;
   font-size: 36px;
-  background: rgba(0, 0, 0, 0);
+  
 
 }
 
 .call-to-action {
   text-decoration: none;
-  background-color: rgba(0, 0, 0, 0);
+  background: rgba(255, 255, 255, .3);
   color: var(--gymred);
   text-shadow: 2px 2px black;
   font-size: 72px;
@@ -91,19 +91,20 @@ img {
   
   .call-to-action {
     font-size: 48px;
-    margin: auto;
+   
   }
 }
 
 
 @media screen and (max-width: 480px) {
 
+    
     p {
     width: 50%;
     }
 
     h2 {
-      margin: 5% 10%;
+      margin: 3em auto;
     }
     
 }
