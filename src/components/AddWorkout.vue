@@ -1,8 +1,7 @@
 <template>
   <div class="add-workout">
-    <h3>Add a New Workout</h3>
     <form>
-      <FormControl label="New Workout">
+      <FormControl>
         <select v-model="selectedProgram">
           <option value=''>No Template</option>
           <option v-for="program in programSet"
@@ -61,6 +60,15 @@ export default {
 
 .add-workout {
   border: 1px solid black;
+  border-radius: 1em;
+  border: 2px solid #C97560;
+  padding: 1em;
+  background-color: rgba(202, 160, 150, 0.7);
+  width: 300px;
+  margin: 0 auto;
 }
+
+
+
 
 </style>

@@ -1,12 +1,12 @@
 <template>
-    <div>
-        <h2>Your Workouts</h2>
+    <main>
+        <h2 class="dashboard-title">Add A New Workout</h2>
         <AddWorkout
         :programSet="programSet"
         :handleAddWorkout="handleAddWorkout"
         />
         <div class="workout-cards">
-          <h3>Workout List</h3>
+          <h2 class="dashboard-title">Workout List</h2>
           <ul>
             <WorkoutCard class="workout-card"
               v-for="(workout, index) in workoutSet"
@@ -24,7 +24,7 @@
             />        
           </ul>
         </div>
-    </div>
+    </main>
 </template>
 
 <script>
@@ -57,6 +57,37 @@ export default {
 </script>
 
 <style>
+
+@font-face {
+    font-family: BOMBARD;
+    src: url("../assets/fonts/BOMBARD.ttf") format("opentype");
+}
+
+h2.dashboard-title {
+  font-size: 36px;
+  color: var(--gymred);
+  text-shadow: 2px 2px black;
+  background: rgba(0, 0, 0, 0);
+
+}
+
+.call-to-action {
+  text-decoration: none;
+  background-color: rgba(0, 0, 0, 0);
+  color: var(--gymred);
+  text-shadow: 2px 2px black;
+  font-size: 72px;
+  border: 5px solid var(--gymred);
+  border-radius: 20px 20px;
+  padding: 8px;
+}
+
+main {
+  background: url(../assets/background.jpg);
+  background-size: cover;
+}
+
+
 ul {
   list-style-type: none;
   display: grid;
@@ -65,10 +96,5 @@ ul {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));  
 }
 
-.workout-card {
-  border-radius: 1em;
-  border: 2px solid #C97560;
-  padding: 1em;
-  background-color: #FFE2DB;
-}
+
 </style>

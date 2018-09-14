@@ -68,6 +68,12 @@ export default {
 
 <style>
 
+.workout-card {
+  border-radius: 1em;
+  border: 2px solid #C97560;
+  padding: 1em;
+  background-color: rgba(202, 160, 150, 0.7);
+}
 
 li {
   border: 1px solid black;

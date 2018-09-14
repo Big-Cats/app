@@ -34,6 +34,13 @@ export default {
 
 <style scoped>
 
+
+@font-face {
+    font-family: BOMBARD;
+    src: url("../assets/fonts/BOMBARD.ttf") format("opentype");
+}
+
+
 main {
   background: url(../assets/background.jpg);
   background-size: cover;
@@ -43,6 +50,7 @@ h2 {
   margin-top: 300px;
   font-size: 36px;
   background: rgba(0, 0, 0, 0);
+
 }
 
 .call-to-action {
@@ -53,7 +61,9 @@ h2 {
   font-size: 72px;
   border: 5px solid var(--gymred);
   border-radius: 20px 20px;
-  padding: 8px;
+  padding: 15px;
+  font-family: BOMBARD, "Avenir Next", sans-serif;
+  letter-spacing: 5px;
 }
 
 .call-to-action:hover {

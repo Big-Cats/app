@@ -27,6 +27,13 @@ export default {
 
 <style scoped>
 
+@import url('https://fonts.googleapis.com/css?family=Bowlby+One+SC');
+
+@font-face {
+    font-family: BOMBARD;
+    src: url("../assets/fonts/BOMBARD.ttf") format("opentype");
+}
+
 .center {
   display: flex;
   flex-direction: column;
@@ -70,6 +77,8 @@ export default {
 
 a, p {
   display: inline-block;
+  font-family: BOMBARD, "Avenir Next", sans-serif;
+  font-weight: bolder;
 }
 
 .nav {
@@ -100,12 +109,17 @@ a.nav:hover {
 }
 
 h1 {
-  font-size: 48px;
-  font-weight: normal;
+  /* font-family: 'Bowlby One SC', cursive; */
+  font-family: BOMBARD, "Avenir Next", sans-serif;
+
+  font-size: 64px;
+  font-weight: 900;
   display: inline-block;
   margin: auto;
   text-transform: uppercase;
   color: black;
+  letter-spacing: 5px;
+  text-shadow: 4px black;
 }
 
 header {
@@ -135,7 +149,7 @@ header {
     padding-top: .5em;
     padding-bottom: .5em;
     }
-    
+
     .nav {
       border: 0px;
       border-radius: 0;
