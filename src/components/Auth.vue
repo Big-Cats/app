@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <main>
     <h2>{{ label }}</h2>
     <button @click="type = isSignUp ? 'signIn' : 'signUp'">
       {{
@@ -13,10 +13,15 @@
       <pre>{{ error }}</pre>
       <form @submit.prevent="handleSubmit">
 
+        <FormControl v-show="isSignUp" label="first name">
+          <input class="email-input" v-model="credentials.first">
+        </FormControl>
+        <FormControl v-show="isSignUp" label="last name">
+          <input class="email-input" v-model="credentials.last">
+        </FormControl>
         <FormControl label="email">
           <input class="email-input" v-model="credentials.email">
         </FormControl>
-
         <FormControl label="password">
           <input 
             :type="show ? 'text' : 'password'" 
@@ -37,7 +42,7 @@
 
       </form>
     </div>
-  </div>
+  </main>
 </template>
 
 <script>
