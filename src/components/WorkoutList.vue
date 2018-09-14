@@ -84,7 +84,8 @@ ul {
   display: grid;
   padding: 1em;
   grid-gap: 1.5em;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));  
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  justify-items: center;  
 }
 
 

@@ -98,10 +98,23 @@ img {
 
 @media screen and (max-width: 480px) {
     p {
-    width: 50%;
+      width: 50%;
     }
     h2 {
       margin: 25% 10%;
+      padding: 0px;
+    }
+}
+@media screen and (max-width: 380px) {
+    p {
+    width: 75%;
+    }
+    h2 {
+      margin: 25% 5%;
+    }
+    .call-to-action {
+      font-size: 32px;
+      letter-spacing: 1px;
     }
 }
 

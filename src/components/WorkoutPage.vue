@@ -1,16 +1,14 @@
 <template>
     <main>
       <WorkoutDetail
-          :workout="workout"
+          :workout="this.workout"
           :movements="movements"
           :muscles="muscles"
           :muscleMovements="muscleMovements"
           :exercises="workout.exercises"
           :handleAddLog="handleAddLog"
-          :handleAddWorkout="handleAddWorkout"
-          :handleRemoveWorkout="handleRemoveWorkout"
-          :handleRemoveExercise="handleRemoveExercise"
           :handleUpdateLog="handleUpdateLog"
+          :handleRemoveExercise="handleRemoveExercise"
       />        
     </main>
 </template>
@@ -27,11 +25,10 @@ export default {
     muscles: Array,
     muscleMovements: Object,
     handleAddLog: Function,
-    handleAddWorkout: Function,
-    handleRemoveExercise: Function,
     handleRemoveLog: Function,
     handleUpdateLog: Function,
-    handleRemoveWorkout: Function
+    handleRemoveExercise: Function,
+    updateCoreData: Function
   },
   data() {
     return {
@@ -39,7 +36,10 @@ export default {
     };
   },
   created() {
-
+    // this.updateCoreData()
+    //   .then(() => {
+    //     this.workout = this.getWorkout(this.$route.params.id);
+    //   });
   },
   components: {
     WorkoutDetail,

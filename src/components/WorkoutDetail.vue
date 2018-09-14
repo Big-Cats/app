@@ -3,15 +3,15 @@
     <div class="workout-detail">
       <div class="card-header">
         <p class="date">{{ workoutDate.toLocaleString() }}</p>
-        <button class="remove-workout" @click="onWorkoutRemove">x</button>
       </div>
-      <AddExercise 
+      <Timer/>
+      <!-- <AddExercise 
         :movements="movements"
         :muscles="muscles"
         :workout="workout"
         :muscleMovements="muscleMovements"
         :handleAddLog="handleAddLog"
-      />
+      /> -->
       <ExerciseCounter
         v-for="(exercise, index) in exercises"
         :key="index"
@@ -20,9 +20,9 @@
         :workoutIndex="index"
         :handleRemoveExercise="handleRemoveExercise"
         :handleUpdateLog="handleUpdateLog"
+        :hideRemove="false"
       /> 
     </div>
-    <Timer/>
     <router-link class="nav-link" to="/workouts">See All Workouts</router-link>
   </section>
 </template>
@@ -42,8 +42,6 @@ export default {
     handleAddLog: Function,
     handleRemoveExercise: Function,
     handleUpdateLog: Function,
-    handleRemoveWorkout: Function
-
   },
   components: {
     AddExercise,
@@ -56,9 +54,9 @@ export default {
     }
   },
   methods: {
-    onWorkoutRemove() {
-      this.handleRemoveWorkout(this.workout);
-    }
+    // onWorkoutRemove() {
+    //   this.handleRemoveWorkout(this.workout);
+    // }
   }
 
 
@@ -101,6 +99,11 @@ export default {
   margin-top: 40px;
   border-radius: 5px;
   border: 2px solid var(--gymred);
+}
+
+.nav-link:hover {
+  cursor: pointer;
+  background-color: darkgray;
 }
 
 @media screen and (max-width: 550px) {

@@ -76,8 +76,9 @@ export default {
 <style scoped>
 
   h1 {
-    color: white;
-    text-shadow: 3px 3px 3px black;
+    color: black;
+    /* text-shadow: 3px 3px 3px black; */
+    margin: 0 auto;
   }
 
   #timer {

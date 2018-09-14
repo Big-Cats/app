@@ -20,6 +20,7 @@
         :workoutIndex="index"
         :handleRemoveExercise="handleRemoveExercise"
         :handleUpdateLog="handleUpdateLog"
+        :hideRemove="true"
       /> 
     </li>
 </template>
@@ -91,6 +92,7 @@ export default {
 
 li {
   border: 1px solid black;
+  width: 90%;
 }
 .card-header {
   display: flex;

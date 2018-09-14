@@ -10,7 +10,7 @@
         :index="index"
       />
     </div>
-    <button class="remove-exercise" @click="onExerciseRemove">x</button>
+    <button v-show="hideRemove" class="remove-exercise" @click="onExerciseRemove">x</button>
   </div>
 </template>
 
@@ -26,7 +26,8 @@ export default {
     workout: Object,
     workoutIndex: Number,
     handleRemoveExercise: Function,
-    handleUpdateLog: Function
+    handleUpdateLog: Function,
+    hideRemove: Boolean
   },
   computed: {
     setList() {

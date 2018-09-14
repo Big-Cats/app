@@ -53,9 +53,20 @@ export default {
 
 <style scoped>
 
+select, button {
+  cursor: pointer;
+  background-color: white;
+  font-weight: bold;
+  border: 1px 1px var(--gymred);
+  margin: 5px;
+  font-size: 20px;
+  border-radius: 5px 5px;
+}
+
 .form-control {
   text-align: center;
   margin: 0 auto;
+  height: 60px;
 }
 
 .add-workout {
