@@ -12,13 +12,6 @@
         }}
       </button>
     </div>
-    <button @click="type = isSignUp ? 'signIn' : 'signUp'">
-      {{
-        isSignUp
-          ? "Already a user? Click here to sign in"
-          : "New? Click here to sign up"
-      }}
-    </button>
     
     <div class="auth-form">
       <pre>{{ error }}</pre>
@@ -29,26 +22,26 @@
           <input class="email-input" v-model="credentials.first">
         </FormControl>
         <FormControl v-show="isSignUp" label="last name" class="auth-text">
-          <input class="email-input" v-model="credentials.last" class="auth-text">
+          <input class="email-input" v-model="credentials.last">
         </FormControl>
-        <FormControl label="email">
-          <input class="email-input" v-model="credentials.email" class="auth-text">
+        <FormControl label="email"  class="auth-text">
+          <input class="email-input" v-model="credentials.email">
         </FormControl>
         <FormControl label="password" class="auth-text">
           <input 
             :type="show ? 'text' : 'password'" 
             v-model="credentials.password">
+        </FormControl>
+
+        <FormControl class="centered">
           <button 
             @click="show = !show"
             type="button"
-            class="add-button"
+            class="bottom-button"
           >
             {{ show ? 'Hide' : 'Show' }}
           </button>
-        </FormControl>
-
-        <FormControl>
-          <button type="submit" class="add-button">                  
+          <button type="submit" class="bottom-button">                  
             {{ label }}
           </button>
         </FormControl>
@@ -118,6 +111,30 @@ export default {
 
 <style scoped>
 
+.centered {
+  display: grid;
+  justify-items: center;
+}
+
+.add-button {
+  width: 55%;
+  margin: 5px auto;
+}
+.bottom-button {
+  border-radius: 10%;
+  background-color: black;
+  color: white;  
+  text-shadow: 2px 2px black;
+  font-size: 22px;
+  padding: 4px;
+  cursor: pointer;
+  width: 70%;
+  margin: 5px auto;
+
+}
+h2 {
+  margin: 0 auto;
+}
 #auth-page {
   background: url(../assets/background.jpg);
   background-size: cover;
@@ -138,7 +155,7 @@ export default {
 }
 
 .email-input {
-  width: 220px;
+  /* width: 220px; */
 }
 
 .auth-form {
@@ -151,11 +168,13 @@ export default {
 }
 
 input {
-  margin: 0px auto; 
+  margin: 0px auto;
+  width: 100%; 
 }
 .auth-text {
   color: white;
   text-shadow: 3px 3px 3px black;
+  margin: 5px;
 }
 h2 {
    font-family: BOMBARD, "Avenir Next", sans-serif;

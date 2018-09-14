@@ -168,10 +168,6 @@ export default {
 #weight {
   width: 4em;
 }
-.add-button {
-  background-color: black;
-  color: white;  
-}
 
 @media screen and (max-width: 850px) {
   .add-exercise {
