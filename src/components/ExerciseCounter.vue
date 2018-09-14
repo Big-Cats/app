@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3>{{ exercise.movement.toUpperCase() }} - {{ exercise.sets.length }} x {{ exercise.sets[0].attempted }}</h3>
+    <h3>{{ exercise.movement.toUpperCase() }} - {{ exercise.sets.length }} x {{ exercise.sets[0].attempted }} {{ exercise.sets[0].weight ? `@ ${exercise.sets[0].weight} lb` : null }}</h3>
     <div class="set">
       <LogButton 
         v-for="(set, index) in exercise.sets" 
@@ -54,11 +54,16 @@ export default {
 .remove-exercise {
   background-color: black;
   color: white;
-  display: inline;
+  display: inline-block;
   margin-left: 30px;
   padding: 5px;
   width: 30px;
   height: 30px;
+  border-radius: 15%;
+}
+.remove-exercise:hover {
+  background-color: darkgrey;
+  cursor: pointer;
 }
 
 
