@@ -4,14 +4,18 @@
     <div class="center">
       <h1>Maximum Intensity</h1>
       <nav>
-        <RouterLink class="nav" to="/">Home</RouterLink>
-        <RouterLink class="nav" to="/about">About</RouterLink>
-        <RouterLink class="nav" v-if="user" to="/dashboard">Dashboard</RouterLink>
-        <RouterLink class="nav" v-if="!user" to="/auth">Sign In</RouterLink>
-        <a class="nav" v-if="user" href="/" @click.prevent="onSignOut">Sign Out</a>
+        <RouterLink class="nav main-nav" to="/">Home</RouterLink>
+        <RouterLink class="nav main-nav" v-if="user" to="/workouts">Workouts</RouterLink>
+        <RouterLink class="nav main-nav" to="/philosophy">Our Philosophy</RouterLink>
+        <RouterLink class="nav main-nav" to="/team">Meet the Team</RouterLink>
       </nav>
     </div>
-    <p id="current-user" v-if="user">User: {{ user.email }}</p>
+    <div class="user-nav">
+      <RouterLink class="nav" v-if="user" to="/profile">User: {{ user.email }}</RouterLink>
+      <a class="nav" v-if="user" href="/logout" @click.prevent="onSignOut">Sign Out</a>
+      <RouterLink class="nav" v-if="!user" to="/auth">Sign In</RouterLink>
+    </div>
+
   </header>
 </template>
 
@@ -55,13 +59,11 @@ export default {
 
 }
 
-#current-user {
-  font-weight: bolder;
-  text-align: center;
-  display: block;
-  height: 25px;
+/* #current-user {
+  width: 140px;
   font-size: 22px;
-  padding: 10px;
+  padding: 5px;
+  margin: 10px;
   border: 1px solid black;
   text-decoration: none;
   color: white;
@@ -69,10 +71,13 @@ export default {
   box-shadow: 0.5px 0.5px 0.5px black;
   background-color: rgba(65,214,195,0);
   border: 4px solid #ffd90000;
-  margin: 10px 0px auto auto;
-  float: right;
-}
+} */
 
+.user-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
   
 
 a, p {
@@ -85,7 +90,7 @@ a, p {
   width: 140px;
   font-size: 22px;
   padding: 5px;
-  margin: 10px;  
+  margin: 10px;
   text-decoration: none;
   color: white;
   border-radius: 5px;
@@ -133,29 +138,27 @@ header {
   background: var(--gymred);
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1200px) {
     header {
     display: flex;
     flex-direction:column;
     width: 100%;
     }
     nav {
-    background-color: #333;
-    overflow: hidden;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    z-index: 100;
-    padding-top: .5em;
-    padding-bottom: .5em;
+      display: none;
     }
-
     .nav {
-      border: 0px;
-      border-radius: 0;
-      margin: auto;
+      margin: 3px auto;
     }
-    #current-user {
+}
+
+@media screen and (max-width: 600px) {
+    header {
+    display: flex;
+    flex-direction:column;
+    width: 100%;
+    }
+    .main-nav, nav {
       display: none;
     }
 }
