@@ -6,7 +6,7 @@
         :handleAddWorkout="handleAddWorkout"
         />
         <div class="workout-cards">
-          <h2 class="dashboard-title">Workout List</h2>
+          <h2 class="dashboard-title">Workout History</h2>
           <ul>
             <WorkoutCard class="workout-card"
               v-for="(workout, index) in workoutSet"
@@ -62,7 +62,6 @@ export default {
     font-family: BOMBARD;
     src: url("../assets/fonts/BOMBARD.ttf") format("opentype");
 }
-
 h2.dashboard-title {
   font-size: 36px;
   color: var(--gymred);
@@ -70,7 +69,6 @@ h2.dashboard-title {
   background: rgba(0, 0, 0, 0);
 
 }
-
 .call-to-action {
   text-decoration: none;
   background-color: rgba(0, 0, 0, 0);
@@ -81,19 +79,13 @@ h2.dashboard-title {
   border-radius: 20px 20px;
   padding: 8px;
 }
-
-main {
-  background: url(../assets/background.jpg);
-  background-size: cover;
-}
-
-
 ul {
   list-style-type: none;
   display: grid;
   padding: 1em;
   grid-gap: 1.5em;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));  
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  justify-items: center;  
 }
 
 

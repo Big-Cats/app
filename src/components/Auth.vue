@@ -1,5 +1,5 @@
 <template>
-  <div id="auth-page">
+  <main id="auth-page">
     <div class="call-to-action">
       <h2>{{ label }}</h2>
       <button 
@@ -12,15 +12,28 @@
         }}
       </button>
     </div>
+    <button @click="type = isSignUp ? 'signIn' : 'signUp'">
+      {{
+        isSignUp
+          ? "Already a user? Click here to sign in"
+          : "New? Click here to sign up"
+      }}
+    </button>
     
     <div class="auth-form">
       <pre>{{ error }}</pre>
       <form @submit.prevent="handleSubmit">
 
-        <FormControl label="email" class="auth-text">
-          <input class="email-input" v-model="credentials.email">
-        </FormControl>
 
+        <FormControl v-show="isSignUp" label="first name" class="auth-text">
+          <input class="email-input" v-model="credentials.first">
+        </FormControl>
+        <FormControl v-show="isSignUp" label="last name" class="auth-text">
+          <input class="email-input" v-model="credentials.last" class="auth-text">
+        </FormControl>
+        <FormControl label="email">
+          <input class="email-input" v-model="credentials.email" class="auth-text">
+        </FormControl>
         <FormControl label="password" class="auth-text">
           <input 
             :type="show ? 'text' : 'password'" 
@@ -42,7 +55,7 @@
 
       </form>
     </div>
-  </div>
+  </main>
 </template>
 
 <script>

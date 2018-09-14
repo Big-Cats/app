@@ -19,8 +19,7 @@
       :handleRemoveWorkout="handleRemoveWorkout"
       :handleRemoveExercise="handleRemoveExercise"
       :handleUpdateLog="handleUpdateLog"
-    >
-    </RouterView> 
+    />
 
     <Footer/> 
   </div>
@@ -31,7 +30,7 @@
 import { checkForToken, signOut, 
   getWorkouts, getPrograms, getMovements, getMuscles, 
   addWorkout, removeWorkout,
-  addLog, removeLog, updateLog 
+  addLog, removeLog, updateLog
 }       
   from './services/api';
 import Header from './components/Header.vue';

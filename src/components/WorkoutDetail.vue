@@ -1,17 +1,17 @@
 <template>
-    <li class="workout-card">
-      <router-link :to="`/workout/${workout.id}`">Start this workout</router-link>
+  <section>
+    <div class="workout-detail">
       <div class="card-header">
         <p class="date">{{ workoutDate.toLocaleString() }}</p>
-        <button class="remove-workout" @click="onWorkoutRemove">x</button>
       </div>
-      <AddExercise 
+      <Timer/>
+      <!-- <AddExercise 
         :movements="movements"
         :muscles="muscles"
         :workout="workout"
         :muscleMovements="muscleMovements"
         :handleAddLog="handleAddLog"
-      />
+      /> -->
       <ExerciseCounter
         v-for="(exercise, index) in exercises"
         :key="index"
@@ -20,14 +20,17 @@
         :workoutIndex="index"
         :handleRemoveExercise="handleRemoveExercise"
         :handleUpdateLog="handleUpdateLog"
-        :hideRemove="true"
+        :hideRemove="false"
       /> 
-    </li>
+    </div>
+    <router-link class="nav-link" to="/workouts">See All Workouts</router-link>
+  </section>
 </template>
 
 <script>
 import AddExercise from './AddExercise.vue';
 import ExerciseCounter from './ExerciseCounter.vue';
+import Timer from './Timer.vue';
 
 export default {
   props: {
@@ -39,12 +42,11 @@ export default {
     handleAddLog: Function,
     handleRemoveExercise: Function,
     handleUpdateLog: Function,
-    handleRemoveWorkout: Function
-
   },
   components: {
     AddExercise,
-    ExerciseCounter
+    ExerciseCounter,
+    Timer
   },
   computed: {
     workoutDate() {
@@ -52,14 +54,9 @@ export default {
     }
   },
   methods: {
-    onWorkoutRemove() {
-      // const idArray = [];
-      // this.setList.forEach(item => idArray.push(item.logId));
-      // this.handleRemoveExercise(idArray);
-
-      // console.log(this.workout);
-      this.handleRemoveWorkout(this.workout);
-    }
+    // onWorkoutRemove() {
+    //   this.handleRemoveWorkout(this.workout);
+    // }
   }
 
 
@@ -67,44 +64,52 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 
-.workout-card {
+.workout-detail {
   border-radius: 1em;
   border: 2px solid #C97560;
   padding: 1em;
   background-color: rgba(202, 160, 150, 0.7);
+  width: 500px;
+  margin: 50px auto;
   list-style: none;
 }
-.workout-card a {
-  text-decoration: none;
-  background: black;
-  color: white;
-  height: 50px;
-  margin: 30px;
-  padding: 5px;
-  border-radius: 5px;
-}
-.workout-card a:hover, .remove-workout:hover {
-  background-color: darkgrey;
-  cursor: pointer;
-}
 
-li {
-  border: 1px solid black;
-  width: 90%;
-}
 .card-header {
   display: flex;
   justify-content: space-between;
-  align-items:baseline;
 }
 .remove-workout {
   background-color: black;
   color: white;
   width: 30px;
   height: 30px;
-  border-radius: 15%;
+  border-radius: 3px;
+}
+.nav-link {
+  display: block;
+  width: 30%;
+  margin: 40px auto;
+  background-color: black;
+  color: var(--gymred);
+  text-decoration: none;
+  height: 25px;
+  padding: 10px;
+  margin-top: 40px;
+  border-radius: 5px;
+  border: 2px solid var(--gymred);
+}
+
+.nav-link:hover {
+  cursor: pointer;
+  background-color: darkgray;
+}
+
+@media screen and (max-width: 550px) {
+  .workout-detail {
+    width: 90%
+  }
 }
 
 </style>

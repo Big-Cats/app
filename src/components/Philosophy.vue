@@ -1,6 +1,6 @@
 <template>
   <main>
-    <h2>About</h2>
+    <h2>Our Philosophy</h2>
     <p>
       The Starting Strength System makes use of the body's most basic movement patterns – barbell exercises that involve all the body’s muscle mass – utilized over the longest effective range of motion and loaded progressively, to force the adaptations necessary for increased strength.
     </p>
@@ -25,11 +25,9 @@ export default {
 main {
   color: white;
 }
-
 h2, p {
   text-shadow: 3px 3px 3px black;
 }
-
 h2 {
   margin-top: 5%;
   font-size: 36px;

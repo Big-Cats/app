@@ -1,26 +1,3 @@
-# app
+# See docs repo for full documentation
 
-## TODO
-
-
-
-
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
+## link: https://github.com/Big-Cats/docs

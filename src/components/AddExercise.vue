@@ -1,7 +1,7 @@
 <template>
 
   <form class="add-exercise">
-    <FormControl label="Add Exercise" >
+    <FormControl class="inputs" label="" >
 
         <FormControl label="Muscles" class="exercise-selector">
           <select 
@@ -63,7 +63,7 @@
         </FormControl>
 
         <FormControl label="Weight" class="exercise-selector">
-          <input id="weight" v-model="weight" required/>
+          <input id="weight" v-model="weight" required/> lb
         </FormControl>
 
 
@@ -104,7 +104,7 @@ export default {
         workout_id: this.workout.id,
         movement_id: this.movements.find(item => item.name === this.selectedMovement).id,
         attempted: this.reps,
-        completed: 0,
+        completed: null,
         weight: this.weight
       };
       console.log('adding log...', log, 'for', this.sets, 'number of times');
@@ -121,13 +121,33 @@ export default {
 </script>
 
 <style>
-.add-exercise {
+
+.add-button {
+  width: 75px;
+  border-radius: 10%;
+  background-color: var(--gymred);
+  color: white;
+  text-shadow: 2px 2px black;
+  font-size: 22px;
+  padding: 4px;
+  cursor: pointer;
+}
+.add-button:hover {
+  background-color: darkgray;
+}
+
+.inputs {
   display: flex;
   justify-content: space-around;
+}
+
+.add-exercise {
   border: 2px solid #C97560;
   background-color: #F7EDEA;
   border-radius: .5em;
   padding: 1em;
+  width: minmax(90%, 600px);
+  margin: 5px auto;
 }
 
 .exercise-selector {
@@ -137,11 +157,13 @@ export default {
   border-radius: .3em;
   border: 1px solid #C97560;
 }
-
 .pulldown {
   border-radius: .2em;
   width: 8em;
-  
+  cursor: pointer;
+}
+.pulldown:hover {
+  background-color: darkgray;
 }
 #weight {
   width: 4em;
@@ -149,6 +171,12 @@ export default {
 .add-button {
   background-color: black;
   color: white;  
+}
+
+@media screen and (max-width: 850px) {
+  .add-exercise {
+    width: 90%
+  }
 }
 
 </style>
