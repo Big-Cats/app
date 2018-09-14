@@ -7,6 +7,8 @@
 * styling
   * use a styling framework to prettify the app, OR
   * improve styling and correct all duplication/waste in the css
+* fix the duplication happening with workoutcard and workoutdetail
+* decide on perhaps a better organization of content for the workoutcard, workoutdetail, and/or workoutlist
 
 
 ## Project setup
