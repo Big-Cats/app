@@ -4,7 +4,7 @@
       <router-link class="call-to-action" to="/auth">Get Started</router-link>
     </h2>
     <h2 class="center" v-if="user">
-      <router-link class="call-to-action" to="/dashboard">Get After It</router-link>
+      <router-link class="call-to-action" to="/workouts">Get After It</router-link>
     </h2>
 
   </main>
@@ -97,15 +97,12 @@ img {
 
 
 @media screen and (max-width: 480px) {
-
     p {
     width: 50%;
     }
-
     h2 {
-      margin: 5% 10%;
+      margin: 25% 10%;
     }
-    
 }
 
 </style>
