@@ -145,7 +145,7 @@ export default {
   border: 2px solid #C97560;
   background-color: #F7EDEA;
   border-radius: .5em;
-  padding: .5em 0 1em 1em;
+  padding: 1em;
   width: minmax(90%, 600px);
   margin: 5px auto;
 }
@@ -157,7 +157,6 @@ export default {
   border-radius: .3em;
   border: 1px solid #C97560;
 }
-
 .pulldown {
   border-radius: .2em;
   width: 8em;
@@ -168,6 +167,10 @@ export default {
 }
 #weight {
   width: 4em;
+}
+.add-button {
+  background-color: black;
+  color: white;  
 }
 
 @media screen and (max-width: 850px) {

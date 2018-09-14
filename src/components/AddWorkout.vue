@@ -2,7 +2,7 @@
   <div class="add-workout">
     <form>
       <FormControl>
-        <select v-model="selectedProgram">
+        <select class="pulldown new-template" v-model="selectedProgram">
           <option value=''>No Template</option>
           <option v-for="program in programSet"
                 :program="program"
@@ -14,7 +14,7 @@
           </option>
         </select>
       </FormControl>
-      <button type="submit" @click.prevent="onWorkoutAdd">Begin Workout</button>
+      <button type="submit" class="begin-button" @click.prevent="onWorkoutAdd">Begin Workout</button>
     </form>
   </div>
 </template>
@@ -79,6 +79,17 @@ select, button {
   margin: 0 auto;
 }
 
+.begin-button {
+  background-color: black;
+  color: white;  
+  margin-top: .5em;
+  height: 40%;
+  width: 40%
+}
+
+.new-template {
+  width: 40%;
+}
 
 
 
