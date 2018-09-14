@@ -2,7 +2,11 @@
 
 ## TODO
 
-
+* add 'create new program' page
+* add table and graph of maxes to user page
+* styling
+  * use a styling framework to prettify the app, OR
+  * improve styling and correct all duplication/waste in the css
 
 
 ## Project setup
