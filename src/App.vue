@@ -53,7 +53,6 @@ export default {
     };
   },
   created() {
-
     this.user = checkForToken();
     this.updateCoreData();
   },
@@ -99,6 +98,7 @@ export default {
           this.error = err.message;
           this.loading = false;
         });
+
       getPrograms()
         .then(response => {
           this.programSet = response;
@@ -109,16 +109,18 @@ export default {
           this.error = err.message;
           this.loading = false;
         });
+
       getMovements()
         .then(response => {
           this.movements = response;
-          console.log('MOVEMENTS', this.movements);
           this.loading = false;
         }).then(() => {
+          // you shouldn't need to wait to get this data
+          // until after movements. If it's a rendering issue,
+          // fix the component template ("v-if", etc.)
           getMuscles()
             .then(response => {
               this.muscles = response;
-              console.log('MUSCLES', this.muscles);
               this.loading = false;
             })
             .then(() => {
@@ -130,25 +132,30 @@ export default {
           this.loading = false;
         });
     },
+
     handleAddWorkout(programId) {
       addWorkout(programId)
-        .then((response) => {
-          console.log('getback', response);
+        .then((workout) => {
+          // Take a look at server, showed you example of return the new workout 
+          // and all its associated data (so it looks like a workout from initial get).
+          // Then you just push this one into the set:
+          this.workoutSet.push(workout);
         })
-        .then(() => {
-          getWorkouts()
-            .then(response => {
-              this.workoutSet = response;
-              console.log('WORKOUT SET', this.workoutSet);
-              this.loading = false;
-            })
-            .catch(err => {
-              this.error = err.message;
-              this.loading = false;
-            });
-        });
-      console.log('workout added');
+      //   .then(() => {
+      //     getWorkouts()
+      //       .then(response => {
+      //         this.workoutSet = response;
+      //         console.log('WORKOUT SET', this.workoutSet);
+      //         this.loading = false;
+      //       })
+      //       .catch(err => {
+      //         this.error = err.message;
+      //         this.loading = false;
+      //       });
+      //   });
+      // console.log('workout added');
     },
+
     handleRemoveWorkout(workout) {
       if(!confirm(`Are you sure you want to remove the workout on ${workout.date}?`)) {
         return;
@@ -156,29 +163,29 @@ export default {
 
       removeWorkout({ id: workout.id })
         .then(() => {
-          getWorkouts()
-            .then(response => {
-              this.workoutSet = response;
-              console.log('WORKOUT SET', this.workoutSet);
-              this.loading = false;
-            })
-            .catch(err => {
-              this.error = err.message;
-              this.loading = false;
-            });
+          // remove from set!
+          const index = this.workoutSet.findIndex(w => w.id === workout.id);
+          if(index !== -1) {
+            this.workoutSet.splice(index, 1);
+          }
+        })
+        .catch(err => {
+          this.error = err.message;
+          this.loading = false;
         });
     },
-    handleRemoveExercise(idArray) {
+
+    handleRemoveExercise(ids) {
       if(!confirm('Are you sure you want to remove this exercise?')) {
         return;
       }
 
       const promiseArray = [];
-      idArray.forEach((item) => {
+      ids.forEach((item) => {
         promiseArray.push(removeLog({ id: item }));
       });
 
-      Promise.all(promiseArray)
+      Promise.all(ids.map(id => removeLog({ id })))
         .then(() => {
           getWorkouts()
             .then(response => {

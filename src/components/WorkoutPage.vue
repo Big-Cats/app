@@ -32,32 +32,18 @@ export default {
   },
   data() {
     return {
-      // workout: this.updateCoreDate.then(this.getWorkout(this.$route.params.id))
-      workout: this.getWorkout(this.$route.params.id)
+      workout: null
     };
-  },
-  created() {
-    // this.updateCoreData()
-    //   .then(() => {
-    //     this.workout = this.getWorkout(this.$route.params.id);
-    //   });
   },
   components: {
     WorkoutDetail,
     AddWorkout
   },
-  methods: {
-    getWorkout(id) {
-      //make this run after getting workoutset via app routes
-      // console.log(this.wrkout)
-      // console.log(
-      //   this.workoutSet.find(item => {
-      //     return item.id === id;
-      //   })
-      // );
-      // return this.workoutSet.find(item => item.id === id);
-      return this.workoutSet[id];
-    }
+  // This should be calling api to get individual workout detail
+  created() {
+    // from "api":
+    getWorkout(this.$router.params.id)
+      .then(workout => this.workout = workout);
   }
 };
 </script>

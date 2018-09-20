@@ -1,34 +1,18 @@
 <template>
   <main>
-    <h2 class="center" v-if="!user">
-      <router-link class="call-to-action" to="/auth">Get Started</router-link>
+    <h2 class="center">
+      <router-link v-if="user" class="call-to-action" to="/workouts">Get After It</router-link>
+      <router-link v-else class="call-to-action" to="/auth">Get Started</router-link>
     </h2>
-    <h2 class="center" v-if="user">
-      <router-link class="call-to-action" to="/workouts">Get After It</router-link>
-    </h2>
-
   </main>
 </template>
 
 <script>
 
-
-
 export default {
-
   props: {
     user: Object,
-  },
-
-  data() {
-    return {
-      proof: `
-        
-      `
-    };
   }
-
-
 };
 </script>
 

@@ -5,13 +5,6 @@
         <p class="date">{{ workoutDate.toLocaleString() }}</p>
       </div>
       <Timer/>
-      <!-- <AddExercise 
-        :movements="movements"
-        :muscles="muscles"
-        :workout="workout"
-        :muscleMovements="muscleMovements"
-        :handleAddLog="handleAddLog"
-      /> -->
       <ExerciseCounter
         v-for="(exercise, index) in exercises"
         :key="index"

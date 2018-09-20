@@ -1,6 +1,7 @@
 <template>
 
-  <form class="add-exercise">
+  <form class="add-exercise" @submit.prevent="onExerciseAdd">
+
     <FormControl class="inputs" label="" >
 
         <FormControl label="Muscles" class="exercise-selector">
@@ -9,9 +10,11 @@
             v-model="selectedMuscle"
             class="pulldown"
           >
+            <!-- you can set the object as the value -->
             <option 
               v-for="muscle in muscles"
               :key="muscle.id"
+              :value="muscle"
             >
               {{ muscle.name }}
             </option>
@@ -23,11 +26,11 @@
             class="pulldown"
             v-model="selectedMovement"
           >
+            <!-- Nice work here combining the selection of one item with secondary list based on that item -->
             <option 
-              v-for="movement in muscleMovements[this.selectedMuscle]"
-              :movement="movement"
+              v-for="movement in muscleMovements[this.selectedMuscle.name]"
               :key="movement.id"
-              :name="movement.name"
+              :value="movement.id"
             >
               {{ movement.name }}
             </option>
@@ -39,11 +42,13 @@
             class="pulldown"
             v-model="sets"
           >
+            <!-- Vue feature for number ranges, using :value keeps in Number not string -->
             <option
-              v-for="element in [1,2,3,4,5,6,7,8,9,10]"
-              :key="element"
+              v-for="number in 10"
+              :key="number"
+              :value="number"
             >
-              {{ element }}
+              {{ number }}
             </option>
           </select>          
         </FormControl>
@@ -54,10 +59,11 @@
             v-model="reps"
           >
             <option
-              v-for="element in [1,2,3,4,5,6,7,8,9,10]"
-              :key="element"
+              v-for="number in 10"
+              :key="number"
+              :value="number"
             >
-              {{ element }}
+              {{ number }}
             </option>
           </select>          
         </FormControl>
@@ -66,9 +72,10 @@
           <input id="weight" v-model="weight" required/> lb
         </FormControl>
 
-
       </FormControl>
-      <button class="add-button" @click.prevent="onExerciseAdd">Add</button>
+
+      <button class="add-button">Add</button>
+
   </form>
 </template>
 
@@ -88,7 +95,7 @@ export default {
   },
   data() {
     return {
-      selectedMuscle: 'abdominals',
+      selectedMuscle: muscleMovements.find(m => m.name === 'abdominals'),
       selectedMovement: null,
       sets: null,
       reps: null,
@@ -102,12 +109,12 @@ export default {
     onExerciseAdd() {
       const log = {
         workout_id: this.workout.id,
-        movement_id: this.movements.find(item => item.name === this.selectedMovement).id,
+        movement_id: this.selectedMovement.id,
         attempted: this.reps,
         completed: null,
         weight: this.weight
       };
-      console.log('adding log...', log, 'for', this.sets, 'number of times');
+      
       for(let i = 0; i < this.sets; i++){
         this.handleAddLog(log);
       }

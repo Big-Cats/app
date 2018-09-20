@@ -2,7 +2,7 @@
     <li class="workout-card">
       <router-link :to="`/workout/${workout.id}`">Start this workout</router-link>
       <div class="card-header">
-        <p class="date">{{ workoutDate.toLocaleString() }}</p>
+        <p class="date">{{ workoutDate }}</p>
         <button class="remove-workout" @click="onWorkoutRemove">x</button>
       </div>
       <AddExercise 
@@ -16,8 +16,7 @@
         v-for="(exercise, index) in exercises"
         :key="index"
         :exercise="exercise"
-        :workout="workout"
-        :workoutIndex="index"
+        :sets="workout.exercises[index].sets"
         :handleRemoveExercise="handleRemoveExercise"
         :handleUpdateLog="handleUpdateLog"
         :hideRemove="true"
@@ -48,16 +47,11 @@ export default {
   },
   computed: {
     workoutDate() {
-      return new Date(this.workout.date);
+      return new Date(this.workout.date).toLocaleString();
     }
   },
   methods: {
     onWorkoutRemove() {
-      // const idArray = [];
-      // this.setList.forEach(item => idArray.push(item.logId));
-      // this.handleRemoveExercise(idArray);
-
-      // console.log(this.workout);
       this.handleRemoveWorkout(this.workout);
     }
   }

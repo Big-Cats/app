@@ -1,9 +1,9 @@
 <template>
   <div class="add-workout">
-    <form>
+    <form @submit.prevent="onWorkoutAdd">
       <FormControl>
         <select class="pulldown new-template" v-model="selectedProgram">
-          <option value=''>No Template</option>
+          <option :value="null">No Template</option>
           <option v-for="program in programSet"
                 :program="program"
                 :key="program.id + program.name"
@@ -14,13 +14,14 @@
           </option>
         </select>
       </FormControl>
-      <button type="submit" class="begin-button" @click.prevent="onWorkoutAdd">Begin Workout</button>
+      <button type="submit" class="begin-button">Begin Workout</button>
     </form>
   </div>
 </template>
 
 <script>
 import FormControl from './FormControl.vue';
+
 export default {
   props: {
     handleAddWorkout: Function,
@@ -31,20 +32,12 @@ export default {
   },
   data() {
     return {
-      selectedProgram: ''
+      selectedProgram: null
     };
   },
   methods: {
     onWorkoutAdd() {
-      const selectedId = this.selectedProgram 
-        ? this.programFinder(this.selectedProgram).id 
-        : null;
-      console.log('Id is ', selectedId);
-      console.log('going to api', JSON.stringify({ id: selectedId }));
-      this.handleAddWorkout({ id: selectedId });
-    },
-    programFinder(programId) {
-      return this.programSet.find((item) => { return item.id = programId; });
+      this.handleAddWorkout({ id: this.selectedProgram });
     }
   }
 

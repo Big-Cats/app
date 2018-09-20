@@ -13,15 +13,6 @@
 <script>
 export default {
 
-  data() {
-    return {
-      proof: `
-        
-      `
-    };
-  }
-
-
 };
 </script>
 

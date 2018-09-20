@@ -24,12 +24,7 @@
         </ul>
       </li>
     </ul>
-
-    <p>
-      
-    </p>
-
-
+    
   </main>
 </template>
 
