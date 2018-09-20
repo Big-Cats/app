@@ -2,9 +2,9 @@
   <button
     @click="onLogUpdate(index)" 
     class="set__checkbox" 
-    :class="{set__checkbox__completed: !this.bubbleDark}"
+    :class="{set__checkbox__completed: this.isComplete}"
   > 
-    {{ bubbleVal }}
+    {{ completed }}
 
   </button>
 
@@ -13,29 +13,15 @@
 <script>
 export default {
   props: {
-    // exercise: Object,
-    // workout: Object,
-    // workoutIndex: Number,
     handleUpdateLog: Function,
-    set: Object,
-    index: Number
+    set: Object
   },
-
-  // created() {
-  //   this.bubbleVal = this.set.attempted;
-  // },
   computed: {
-    setList() {
-      return this.workout.exercises[this.workoutIndex].sets;
+    completed() {
+      return this.set.completed;
     },
-    bubbleVal() {
-      if(this.set.completed === null) { return null; }
-      else if(this.set.completed === 0) { return 0; }
-      else { return this.set.completed; }
-    },
-    bubbleDark() {
-      if(this.set.completed === null){ return false;}
-      else {return true;}
+    isComplete() {
+      return this.completed !== null;
     }
   },
   methods: {
@@ -45,10 +31,9 @@ export default {
       // updateGoal(this.goals[index]);
     },
     onLogUpdate() {
- 
-      console.log('index', this.index);
+      // nice job on handling tri-set: null vs >0 vs 0
       
-      if(this.set.completed === null){
+      if(!this.isComplete){
         this.set.completed = this.set.attempted;
       }
       else if(this.set.completed <= this.set.attempted && this.set.completed > 0){
@@ -65,8 +50,6 @@ export default {
         weight: this.set.weight
       };
 
-      console.log(this.set);
-  
       this.handleUpdateLog(log);
     }
 

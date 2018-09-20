@@ -15,16 +15,7 @@
 export default {
   props: {
     user: Object,
-  },
-  data() {
-    return { 
-    };
-  },
-  created() {
-    console.log(this.user);
-  },
-  components: { 
-  },
+  }
 };
 </script>
 

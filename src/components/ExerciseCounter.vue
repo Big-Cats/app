@@ -1,6 +1,8 @@
 <template>
   <div>
-    <h3>{{ exercise.movement.toUpperCase() }} - {{ exercise.sets.length }} x {{ exercise.sets[0].attempted }} {{ exercise.sets[0].weight ? `@ ${exercise.sets[0].weight} lb` : null }}</h3>
+    <h3>
+      {{ exercise.movement.toUpperCase() }} - {{ exercise.sets.length }} x {{ exercise.sets[0].attempted }} {{ exercise.sets[0].weight ? `@ ${exercise.sets[0].weight} lb` : null }}
+    </h3>
     <div class="set">
       <LogButton 
         v-for="(set, index) in exercise.sets" 
@@ -23,23 +25,16 @@ export default {
   },
   props: {
     exercise: Object,
-    workout: Object,
-    workoutIndex: Number,
+    sets: Array,
     handleRemoveExercise: Function,
     handleUpdateLog: Function,
     hideRemove: Boolean
   },
-  computed: {
-    setList() {
-      return this.workout.exercises[this.workoutIndex].sets;
-    }
-  },
 
   methods: {
     onExerciseRemove() {
-      const idArray = [];
-      this.setList.forEach(item => idArray.push(item.logId));
-      this.handleRemoveExercise(idArray);
+      const setIds = this.sets.map(set => set.logId);
+      this.handleRemoveExercise(setIds);
     }
   }
 };
